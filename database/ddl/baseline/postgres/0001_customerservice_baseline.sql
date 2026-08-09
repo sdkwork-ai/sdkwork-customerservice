@@ -7,7 +7,7 @@
 CREATE TABLE IF NOT EXISTS communication_cs_ticket (
   id UUID PRIMARY KEY,
   tenant_id UUID NOT NULL,
-  organization_id UUID,
+  organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   ticket_no TEXT NOT NULL,
   subject TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'open',
@@ -79,7 +79,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS ux_communication_cs_plugin_catalog_code
 CREATE TABLE IF NOT EXISTS communication_cs_plugin_enablement (
   id UUID PRIMARY KEY,
   tenant_id UUID NOT NULL,
-  organization_id UUID,
+  organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   plugin_code TEXT NOT NULL,
   enabled BOOLEAN NOT NULL DEFAULT TRUE,
   config JSONB NOT NULL DEFAULT '{}'::jsonb,
@@ -93,7 +93,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS ux_communication_cs_plugin_enablement_tenant_c
 CREATE TABLE IF NOT EXISTS communication_cs_channel_account (
   id UUID PRIMARY KEY,
   tenant_id UUID NOT NULL,
-  organization_id UUID,
+  organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   plugin_code TEXT NOT NULL,
   external_account_id TEXT,
   display_name TEXT NOT NULL,
@@ -189,7 +189,7 @@ CREATE INDEX IF NOT EXISTS idx_communication_cs_channel_message_conversation_cre
 CREATE TABLE IF NOT EXISTS communication_cs_auto_reply_rule (
   id UUID PRIMARY KEY,
   tenant_id UUID NOT NULL,
-  organization_id UUID,
+  organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   account_id UUID REFERENCES communication_cs_channel_account(id) ON DELETE CASCADE,
   plugin_code TEXT NOT NULL,
   rule_kind TEXT NOT NULL,
@@ -209,7 +209,7 @@ CREATE INDEX IF NOT EXISTS idx_communication_cs_auto_reply_rule_account_priority
 CREATE TABLE IF NOT EXISTS communication_cs_delivery_block_rule (
   id UUID PRIMARY KEY,
   tenant_id UUID NOT NULL,
-  organization_id UUID,
+  organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   account_id UUID REFERENCES communication_cs_channel_account(id) ON DELETE CASCADE,
   plugin_code TEXT NOT NULL,
   rule_code TEXT NOT NULL,

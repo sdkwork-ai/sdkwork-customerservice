@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS communication_cs_ticket (
   id UUID PRIMARY KEY,
   tenant_id UUID NOT NULL,
-  organization_id UUID,
+  organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
   ticket_no TEXT NOT NULL,
   subject TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'open',
