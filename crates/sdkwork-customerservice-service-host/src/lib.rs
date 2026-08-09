@@ -12,7 +12,8 @@ use sdkwork_communication_customerservice_plugin_spi::{
 use sdkwork_communication_customerservice_repository_sqlx::SqlxCustomerServiceRepository;
 use sdkwork_communication_customerservice_service::CustomerServiceService;
 use sdkwork_customerservice_database_host::{
-    bootstrap_customerservice_database_from_env, CustomerServiceDatabaseHost,
+    bootstrap_customerservice_database, bootstrap_customerservice_database_from_env,
+    CustomerServiceDatabaseHost,
 };
 use sdkwork_database_sqlx::DatabasePool;
 
@@ -31,7 +32,19 @@ impl CustomerServiceHost {
     }
 
     pub async fn from_env() -> Result<Self, String> {
-        let database = bootstrap_customerservice_database_from_env().await?;
+        Ok(Self::from_database(
+            bootstrap_customerservice_database_from_env().await?,
+        )
+        .await)
+    }
+
+    /// Build the host against a caller-provided database pool so the platform
+    /// cloud gateway can share its process-wide PostgreSQL pool.
+    pub async fn from_database_pool(pool: DatabasePool) -> Result<Self, String> {
+        Ok(Self::from_database(bootstrap_customerservice_database(pool).await?).await)
+    }
+
+    async fn from_database(database: CustomerServiceDatabaseHost) -> Self {
         let pool = database.pool().clone();
         let repository = SqlxCustomerServiceRepository::new(pool.clone());
         let service = Arc::new(CustomerServiceService::new(repository));
@@ -50,12 +63,12 @@ impl CustomerServiceHost {
             Arc::clone(&plugin_ports),
             runtime_repository,
         ));
-        Ok(Self {
+        Self {
             database,
             service,
             plugin_ports,
             plugin_runtime,
-        })
+        }
     }
 
     pub fn service(&self) -> &CustomerServiceService<SqlxCustomerServiceRepository> {
