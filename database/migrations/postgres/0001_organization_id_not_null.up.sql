@@ -18,22 +18,27 @@
 
 BEGIN;
 
+ALTER TABLE communication_cs_ticket ADD COLUMN IF NOT EXISTS organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 UPDATE communication_cs_ticket SET organization_id = '00000000-0000-0000-0000-000000000000' WHERE organization_id IS NULL;
 ALTER TABLE communication_cs_ticket ALTER COLUMN organization_id SET DEFAULT '00000000-0000-0000-0000-000000000000';
 ALTER TABLE communication_cs_ticket ALTER COLUMN organization_id SET NOT NULL;
 
+ALTER TABLE communication_cs_plugin_enablement ADD COLUMN IF NOT EXISTS organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 UPDATE communication_cs_plugin_enablement SET organization_id = '00000000-0000-0000-0000-000000000000' WHERE organization_id IS NULL;
 ALTER TABLE communication_cs_plugin_enablement ALTER COLUMN organization_id SET DEFAULT '00000000-0000-0000-0000-000000000000';
 ALTER TABLE communication_cs_plugin_enablement ALTER COLUMN organization_id SET NOT NULL;
 
+ALTER TABLE communication_cs_channel_account ADD COLUMN IF NOT EXISTS organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 UPDATE communication_cs_channel_account SET organization_id = '00000000-0000-0000-0000-000000000000' WHERE organization_id IS NULL;
 ALTER TABLE communication_cs_channel_account ALTER COLUMN organization_id SET DEFAULT '00000000-0000-0000-0000-000000000000';
 ALTER TABLE communication_cs_channel_account ALTER COLUMN organization_id SET NOT NULL;
 
+ALTER TABLE communication_cs_auto_reply_rule ADD COLUMN IF NOT EXISTS organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 UPDATE communication_cs_auto_reply_rule SET organization_id = '00000000-0000-0000-0000-000000000000' WHERE organization_id IS NULL;
 ALTER TABLE communication_cs_auto_reply_rule ALTER COLUMN organization_id SET DEFAULT '00000000-0000-0000-0000-000000000000';
 ALTER TABLE communication_cs_auto_reply_rule ALTER COLUMN organization_id SET NOT NULL;
 
+ALTER TABLE communication_cs_delivery_block_rule ADD COLUMN IF NOT EXISTS organization_id UUID NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 UPDATE communication_cs_delivery_block_rule SET organization_id = '00000000-0000-0000-0000-000000000000' WHERE organization_id IS NULL;
 ALTER TABLE communication_cs_delivery_block_rule ALTER COLUMN organization_id SET DEFAULT '00000000-0000-0000-0000-000000000000';
 ALTER TABLE communication_cs_delivery_block_rule ALTER COLUMN organization_id SET NOT NULL;
