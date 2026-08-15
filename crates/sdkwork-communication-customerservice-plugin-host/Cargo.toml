@@ -12,5 +12,5 @@ path = "src/lib.rs"
 async-trait = { workspace = true }
 serde_json = { workspace = true }
 uuid = { workspace = true }
-sdkwork_communication_customerservice_plugin_spi = { path = "../sdkwork-communication-customerservice-plugin-spi", package = "sdkwork-communication-customerservice-plugin-spi" }
+sdkwork_communication_customerservice_plugin_spi.workspace = true
 sdkwork_communication_customerservice_service = { workspace = true }

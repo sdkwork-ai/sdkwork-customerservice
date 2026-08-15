@@ -12,7 +12,7 @@ path = "src/lib.rs"
 sdkwork_customerservice_database_host = { workspace = true }
 sdkwork_communication_customerservice_repository_sqlx = { workspace = true }
 sdkwork_communication_customerservice_service = { workspace = true }
-sdkwork_communication_customerservice_plugin_host = { path = "../sdkwork-communication-customerservice-plugin-host", package = "sdkwork-communication-customerservice-plugin-host" }
-sdkwork_communication_customerservice_plugin_runtime = { path = "../sdkwork-communication-customerservice-plugin-runtime", package = "sdkwork-communication-customerservice-plugin-runtime" }
-sdkwork_communication_customerservice_plugin_spi = { path = "../sdkwork-communication-customerservice-plugin-spi", package = "sdkwork-communication-customerservice-plugin-spi" }
+sdkwork_communication_customerservice_plugin_host.workspace = true
+sdkwork_communication_customerservice_plugin_runtime.workspace = true
+sdkwork_communication_customerservice_plugin_spi.workspace = true
 sdkwork-database-sqlx = { workspace = true }

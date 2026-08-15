@@ -17,9 +17,9 @@ sdkwork-web-core.workspace = true
 sqlx = { workspace = true }
 sdkwork_customerservice_service_host = { workspace = true }
 sdkwork-database-sqlx = { workspace = true }
-sdkwork-routes-customerservice-app-api = { path = "../sdkwork-routes-customerservice-app-api" }
-sdkwork-routes-customerservice-backend-api = { path = "../sdkwork-routes-customerservice-backend-api" }
-sdkwork-routes-customerservice-internal-api = { path = "../sdkwork-routes-customerservice-internal-api" }
+sdkwork_routes_customerservice_app_api.workspace = true
+sdkwork_routes_customerservice_backend_api.workspace = true
+sdkwork_routes_customerservice_internal_api.workspace = true
 
 [dev-dependencies]
 sdkwork_communication_customerservice_service = { workspace = true, features = ["test-support"] }
