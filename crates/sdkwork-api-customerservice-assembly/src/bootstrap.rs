@@ -7,10 +7,7 @@
 use axum::Router;
 use sdkwork_customerservice_service_host::CustomerServiceHost;
 use sdkwork_database_sqlx::DatabasePool;
-use sdkwork_web_bootstrap::{
-    assemble_multi_surface_router, ApiAssemblyContribution, DatabasePoolReadinessCheck,
-    ReadinessCheck, ServiceRouterConfig,
-};
+use sdkwork_web_bootstrap::{ApiAssemblyContribution, DatabasePoolReadinessCheck, ReadinessCheck};
 use sdkwork_web_core::HttpRouteManifest;
 use std::future::Future;
 use std::pin::Pin;
@@ -78,13 +75,12 @@ pub async fn assemble_api_router(host: Arc<CustomerServiceHost>) -> ApiAssembly 
     let readiness = Arc::new(PostgresReadiness {
         pool: host.database_pool().clone(),
     });
-    let router = assemble_multi_surface_router(
-        [app_router, backend_router, internal_router],
-        ServiceRouterConfig::default().with_readiness_check(readiness),
-    );
+    let router = Router::new()
+        .merge(app_router)
+        .merge(backend_router)
+        .merge(internal_router);
 
-    contribution_from(router, Arc::new(sdkwork_web_bootstrap::AlwaysReady))
-        .expect("customerservice contribution contract is valid")
+    contribution_from(router, readiness).expect("customerservice contribution contract is valid")
 }
 
 /// Assemble the customerservice application router from environment variables.
@@ -108,8 +104,5 @@ pub async fn assemble_api_router_with_pool(pool: DatabasePool) -> Result<ApiAsse
         .merge(app_router)
         .merge(backend_router)
         .merge(internal_router);
-    contribution_from(
-        router,
-        Arc::new(DatabasePoolReadinessCheck::new(pool)),
-    )
+    contribution_from(router, Arc::new(DatabasePoolReadinessCheck::new(pool)))
 }

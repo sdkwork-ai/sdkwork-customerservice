@@ -1,6 +1,8 @@
-use sdkwork_api_customerservice_assembly::assemble_api_router;
-use sdkwork_customerservice_service_host::CustomerServiceHost;
-use std::sync::Arc;
+use sdkwork_api_customerservice_assembly::assemble_api_router_from_env;
+use sdkwork_iam_web_adapter::{
+    build_web_framework_builder, iam_web_request_context_resolver_from_env,
+};
+use sdkwork_web_bootstrap::{infra_public_path_prefixes, ComposedApiAssembly};
 
 #[tokio::main]
 async fn main() {
@@ -12,15 +14,18 @@ async fn main() {
         .init();
     tracing::info!(service = "customerservice-server", "starting api server");
 
-    let host = Arc::new(CustomerServiceHost::new().await);
-    let environment =
-        sdkwork_web_bootstrap::web_environment_from_env(&["SDKWORK_CUSTOMER_SERVICE_ENVIRONMENT"]);
-    let policy =
-        sdkwork_web_bootstrap::security_policy_for_environment(&environment, std::iter::empty());
-    let app = assemble_api_router(host)
+    let assembly = assemble_api_router_from_env()
         .await
-        .router
-        .layer(sdkwork_web_axum::cors_layer_from_policy(policy.cors));
+        .expect("customerservice API assembly failed");
+    let framework = build_web_framework_builder(
+        iam_web_request_context_resolver_from_env().await,
+        assembly.route_manifest.clone(),
+        infra_public_path_prefixes(),
+    );
+    let app = ComposedApiAssembly::try_compose("SDKWork Customer Service API", vec![assembly])
+        .expect("customerservice API composition failed")
+        .into_hosted(framework)
+        .router;
 
     let addr =
         std::env::var("CUSTOMER_SERVICE_API_BIND").unwrap_or_else(|_| "0.0.0.0:18091".to_owned());

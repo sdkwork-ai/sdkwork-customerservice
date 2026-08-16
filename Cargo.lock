@@ -1726,10 +1726,8 @@ version = "0.1.0"
 dependencies = [
  "axum",
  "sdkwork-api-customerservice-assembly",
- "sdkwork-customerservice-service-host",
- "sdkwork-web-axum",
+ "sdkwork-iam-web-adapter",
  "sdkwork-web-bootstrap",
- "sdkwork-web-core",
  "tokio",
  "tower-http 0.5.2",
  "tracing",
