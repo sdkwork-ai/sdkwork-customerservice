@@ -1,7 +1,7 @@
 export interface ChannelAccountSummary {
   id: string;
   tenantId: string;
-  organizationId?: string;
+  organizationId?: string | null;
   pluginCode: string;
   externalAccountId?: string | null;
   displayName: string;

@@ -9,11 +9,10 @@
     "protocol": "http",
     "packageName": "sdkwork-customerservice-backend-sdk-generated-typescript"
   },
-  "changeFingerprint": "0be8666a01b222da19c2997dd526baad9371e3c28cc84aeccab10d98c6d5aa14",
+  "changeFingerprint": "1c57a261a213570e165e3ff3a206ca26533d5fda273622c2949d9b7c17157411",
   "changes": {
     "createdGeneratedFiles": [],
-    "updatedGeneratedFiles": [],
-    "unchangedGeneratedFiles": [
+    "updatedGeneratedFiles": [
       "bin/publish-core.mjs",
       "bin/publish.ps1",
       "bin/publish.sh",
@@ -108,36 +107,309 @@
       "src/types/upsert-plugin-enablement-request.ts",
       "tsconfig.json"
     ],
+    "unchangedGeneratedFiles": [],
     "deletedGeneratedFiles": [],
     "scaffoldedFiles": [],
     "preservedScaffoldFiles": [
       "custom/build-runtime.mjs",
       "custom/README.md"
     ],
-    "backedUpFiles": []
+    "backedUpFiles": [
+      "bin/publish-core.mjs",
+      "bin/publish.ps1",
+      "bin/publish.sh",
+      "bin/sdk-gen.bat",
+      "bin/sdk-gen.sh",
+      "CHANGELOG.md",
+      "LICENSE",
+      "package.json",
+      "README.md",
+      "sdkwork-sdk.json",
+      "src/api/base.ts",
+      "src/api/customer-service-channels-admin.ts",
+      "src/api/customer-service-plugins-admin.ts",
+      "src/api/customer-service-tickets-admin.ts",
+      "src/api/index.ts",
+      "src/api/paths.ts",
+      "src/auth/index.ts",
+      "src/http/client.ts",
+      "src/http/index.ts",
+      "src/index.ts",
+      "src/sdk.ts",
+      "src/types/account-runtime-status.ts",
+      "src/types/auto-reply-rule-summary.ts",
+      "src/types/channel-account-summary.ts",
+      "src/types/common.ts",
+      "src/types/create-auto-reply-rule-request.ts",
+      "src/types/create-channel-account-request.ts",
+      "src/types/customerservice-channels-admin-accounts-create-resource-data.ts",
+      "src/types/customerservice-channels-admin-accounts-create-response.ts",
+      "src/types/customerservice-channels-admin-accounts-list-page-data.ts",
+      "src/types/customerservice-channels-admin-accounts-list-response.ts",
+      "src/types/customerservice-channels-admin-accounts-runtime-start-resource-data.ts",
+      "src/types/customerservice-channels-admin-accounts-runtime-start-response.ts",
+      "src/types/customerservice-channels-admin-accounts-runtime-status-resource-data.ts",
+      "src/types/customerservice-channels-admin-accounts-runtime-status-response.ts",
+      "src/types/customerservice-channels-admin-accounts-runtime-stop-resource-data.ts",
+      "src/types/customerservice-channels-admin-accounts-runtime-stop-response.ts",
+      "src/types/customerservice-channels-admin-accounts-update-resource-data.ts",
+      "src/types/customerservice-channels-admin-accounts-update-response.ts",
+      "src/types/customerservice-channels-admin-auto-reply-rules-create-resource-data.ts",
+      "src/types/customerservice-channels-admin-auto-reply-rules-create-response.ts",
+      "src/types/customerservice-channels-admin-auto-reply-rules-list-page-data.ts",
+      "src/types/customerservice-channels-admin-auto-reply-rules-list-response.ts",
+      "src/types/customerservice-channels-admin-auto-reply-rules-update-resource-data.ts",
+      "src/types/customerservice-channels-admin-auto-reply-rules-update-response.ts",
+      "src/types/customerservice-channels-admin-delivery-block-rules-catalog-page-data.ts",
+      "src/types/customerservice-channels-admin-delivery-block-rules-catalog-response.ts",
+      "src/types/customerservice-channels-admin-delivery-block-rules-list-page-data.ts",
+      "src/types/customerservice-channels-admin-delivery-block-rules-list-response.ts",
+      "src/types/customerservice-channels-admin-delivery-block-rules-upsert-page-data.ts",
+      "src/types/customerservice-channels-admin-delivery-block-rules-upsert-response.ts",
+      "src/types/customerservice-plugins-admin-enablement-upsert-resource-data.ts",
+      "src/types/customerservice-plugins-admin-enablement-upsert-response.ts",
+      "src/types/customerservice-plugins-admin-list-page-data.ts",
+      "src/types/customerservice-plugins-admin-list-response.ts",
+      "src/types/customerservice-tickets-admin-list-page-data.ts",
+      "src/types/customerservice-tickets-admin-list-response.ts",
+      "src/types/customerservice-tickets-admin-messages-create-resource-data.ts",
+      "src/types/customerservice-tickets-admin-messages-create-response.ts",
+      "src/types/customerservice-tickets-admin-messages-list-page-data.ts",
+      "src/types/customerservice-tickets-admin-messages-list-response.ts",
+      "src/types/customerservice-tickets-admin-retrieve-resource-data.ts",
+      "src/types/customerservice-tickets-admin-retrieve-response.ts",
+      "src/types/customerservice-tickets-admin-update-resource-data.ts",
+      "src/types/customerservice-tickets-admin-update-response.ts",
+      "src/types/delivery-block-rule-catalog-entry.ts",
+      "src/types/delivery-block-rule-summary.ts",
+      "src/types/field-error.ts",
+      "src/types/index.ts",
+      "src/types/page-info.ts",
+      "src/types/plugin-catalog-entry.ts",
+      "src/types/plugin-enablement-summary.ts",
+      "src/types/problem-detail.ts",
+      "src/types/register-channel-credential-request.ts",
+      "src/types/sdk-work-api-response.ts",
+      "src/types/sdk-work-command-data.ts",
+      "src/types/sdk-work-command-response.ts",
+      "src/types/sdk-work-list-response.ts",
+      "src/types/sdk-work-page-data.ts",
+      "src/types/sdk-work-platform-error-code.ts",
+      "src/types/sdk-work-resource-data.ts",
+      "src/types/sdk-work-resource-response.ts",
+      "src/types/send-ticket-message-request.ts",
+      "src/types/ticket-detail.ts",
+      "src/types/ticket-message.ts",
+      "src/types/ticket-summary.ts",
+      "src/types/update-auto-reply-rule-request.ts",
+      "src/types/update-channel-account-request.ts",
+      "src/types/update-ticket-request.ts",
+      "src/types/upsert-delivery-block-rule-item.ts",
+      "src/types/upsert-delivery-block-rules-request.ts",
+      "src/types/upsert-plugin-enablement-request.ts",
+      "tsconfig.json"
+    ]
   },
   "impact": {
     "schemaVersion": 1,
-    "areas": [],
-    "details": [],
-    "requiresVerification": false,
-    "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped."
+    "areas": [
+      "api-surface",
+      "models",
+      "runtime",
+      "build-metadata",
+      "publish-workflow",
+      "documentation",
+      "unknown"
+    ],
+    "details": [
+      {
+        "area": "api-surface",
+        "paths": [
+          "src/api/base.ts",
+          "src/api/customer-service-channels-admin.ts",
+          "src/api/customer-service-plugins-admin.ts",
+          "src/api/customer-service-tickets-admin.ts",
+          "src/api/index.ts",
+          "src/api/paths.ts",
+          "src/http/client.ts",
+          "src/sdk.ts"
+        ]
+      },
+      {
+        "area": "models",
+        "paths": [
+          "src/types/account-runtime-status.ts",
+          "src/types/auto-reply-rule-summary.ts",
+          "src/types/channel-account-summary.ts",
+          "src/types/common.ts",
+          "src/types/create-auto-reply-rule-request.ts",
+          "src/types/create-channel-account-request.ts",
+          "src/types/customerservice-channels-admin-accounts-create-resource-data.ts",
+          "src/types/customerservice-channels-admin-accounts-create-response.ts",
+          "src/types/customerservice-channels-admin-accounts-list-page-data.ts",
+          "src/types/customerservice-channels-admin-accounts-list-response.ts",
+          "src/types/customerservice-channels-admin-accounts-runtime-start-resource-data.ts",
+          "src/types/customerservice-channels-admin-accounts-runtime-start-response.ts",
+          "src/types/customerservice-channels-admin-accounts-runtime-status-resource-data.ts",
+          "src/types/customerservice-channels-admin-accounts-runtime-status-response.ts",
+          "src/types/customerservice-channels-admin-accounts-runtime-stop-resource-data.ts",
+          "src/types/customerservice-channels-admin-accounts-runtime-stop-response.ts",
+          "src/types/customerservice-channels-admin-accounts-update-resource-data.ts",
+          "src/types/customerservice-channels-admin-accounts-update-response.ts",
+          "src/types/customerservice-channels-admin-auto-reply-rules-create-resource-data.ts",
+          "src/types/customerservice-channels-admin-auto-reply-rules-create-response.ts",
+          "src/types/customerservice-channels-admin-auto-reply-rules-list-page-data.ts",
+          "src/types/customerservice-channels-admin-auto-reply-rules-list-response.ts",
+          "src/types/customerservice-channels-admin-auto-reply-rules-update-resource-data.ts",
+          "src/types/customerservice-channels-admin-auto-reply-rules-update-response.ts",
+          "src/types/customerservice-channels-admin-delivery-block-rules-catalog-page-data.ts",
+          "src/types/customerservice-channels-admin-delivery-block-rules-catalog-response.ts",
+          "src/types/customerservice-channels-admin-delivery-block-rules-list-page-data.ts",
+          "src/types/customerservice-channels-admin-delivery-block-rules-list-response.ts",
+          "src/types/customerservice-channels-admin-delivery-block-rules-upsert-page-data.ts",
+          "src/types/customerservice-channels-admin-delivery-block-rules-upsert-response.ts",
+          "src/types/customerservice-plugins-admin-enablement-upsert-resource-data.ts",
+          "src/types/customerservice-plugins-admin-enablement-upsert-response.ts",
+          "src/types/customerservice-plugins-admin-list-page-data.ts",
+          "src/types/customerservice-plugins-admin-list-response.ts",
+          "src/types/customerservice-tickets-admin-list-page-data.ts",
+          "src/types/customerservice-tickets-admin-list-response.ts",
+          "src/types/customerservice-tickets-admin-messages-create-resource-data.ts",
+          "src/types/customerservice-tickets-admin-messages-create-response.ts",
+          "src/types/customerservice-tickets-admin-messages-list-page-data.ts",
+          "src/types/customerservice-tickets-admin-messages-list-response.ts",
+          "src/types/customerservice-tickets-admin-retrieve-resource-data.ts",
+          "src/types/customerservice-tickets-admin-retrieve-response.ts",
+          "src/types/customerservice-tickets-admin-update-resource-data.ts",
+          "src/types/customerservice-tickets-admin-update-response.ts",
+          "src/types/delivery-block-rule-catalog-entry.ts",
+          "src/types/delivery-block-rule-summary.ts",
+          "src/types/field-error.ts",
+          "src/types/index.ts",
+          "src/types/page-info.ts",
+          "src/types/plugin-catalog-entry.ts",
+          "src/types/plugin-enablement-summary.ts",
+          "src/types/problem-detail.ts",
+          "src/types/register-channel-credential-request.ts",
+          "src/types/sdk-work-api-response.ts",
+          "src/types/sdk-work-command-data.ts",
+          "src/types/sdk-work-command-response.ts",
+          "src/types/sdk-work-list-response.ts",
+          "src/types/sdk-work-page-data.ts",
+          "src/types/sdk-work-platform-error-code.ts",
+          "src/types/sdk-work-resource-data.ts",
+          "src/types/sdk-work-resource-response.ts",
+          "src/types/send-ticket-message-request.ts",
+          "src/types/ticket-detail.ts",
+          "src/types/ticket-message.ts",
+          "src/types/ticket-summary.ts",
+          "src/types/update-auto-reply-rule-request.ts",
+          "src/types/update-channel-account-request.ts",
+          "src/types/update-ticket-request.ts",
+          "src/types/upsert-delivery-block-rule-item.ts",
+          "src/types/upsert-delivery-block-rules-request.ts",
+          "src/types/upsert-plugin-enablement-request.ts"
+        ]
+      },
+      {
+        "area": "runtime",
+        "paths": [
+          "src/auth/index.ts",
+          "src/http/client.ts",
+          "src/http/index.ts"
+        ]
+      },
+      {
+        "area": "build-metadata",
+        "paths": [
+          "package.json",
+          "sdkwork-sdk.json",
+          "tsconfig.json"
+        ]
+      },
+      {
+        "area": "publish-workflow",
+        "paths": [
+          "bin/publish-core.mjs",
+          "bin/publish.ps1",
+          "bin/publish.sh",
+          "bin/sdk-gen.bat",
+          "bin/sdk-gen.sh"
+        ]
+      },
+      {
+        "area": "documentation",
+        "paths": [
+          "CHANGELOG.md",
+          "README.md"
+        ]
+      },
+      {
+        "area": "unknown",
+        "paths": [
+          "LICENSE",
+          "src/index.ts"
+        ]
+      }
+    ],
+    "requiresVerification": true,
+    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required."
   },
   "verificationPlan": {
-    "shouldRun": false,
-    "runPhase": "skip",
-    "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped.",
-    "steps": []
+    "shouldRun": true,
+    "runPhase": "now",
+    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
+    "steps": [
+      {
+        "id": "check",
+        "title": "Unified package check",
+        "required": true,
+        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "E:\\sdkwork-space\\sdkwork-customerservice\\sdks\\sdkwork-customerservice-backend-sdk\\sdkwork-customerservice-backend-sdk-typescript\\generated\\server-openapi",
+        "command": "node",
+        "args": [
+          "./bin/publish-core.mjs",
+          "--language",
+          "typescript",
+          "--project-dir",
+          ".",
+          "--action",
+          "check"
+        ],
+        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action check"
+      },
+      {
+        "id": "build",
+        "title": "Unified package build",
+        "required": true,
+        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "E:\\sdkwork-space\\sdkwork-customerservice\\sdks\\sdkwork-customerservice-backend-sdk\\sdkwork-customerservice-backend-sdk-typescript\\generated\\server-openapi",
+        "command": "node",
+        "args": [
+          "./bin/publish-core.mjs",
+          "--language",
+          "typescript",
+          "--project-dir",
+          ".",
+          "--action",
+          "build"
+        ],
+        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action build"
+      }
+    ]
   },
   "executionDecision": {
     "schemaVersion": 1,
-    "riskLevel": "low",
-    "nextAction": "skip",
+    "riskLevel": "high",
+    "nextAction": "verify",
     "requiresManualReview": false,
     "applyRequiresExpectedFingerprint": false,
-    "summary": "No actionable changes were detected. No apply or verification step is required.",
+    "summary": "Changes have been applied. Run the required verification plan now.",
     "reasons": [
-      "no-actionable-changes"
+      "backed-up-generated-files",
+      "manual-review-required",
+      "unknown-impact",
+      "verification-required"
     ]
   },
   "preservedLegacyFiles": false

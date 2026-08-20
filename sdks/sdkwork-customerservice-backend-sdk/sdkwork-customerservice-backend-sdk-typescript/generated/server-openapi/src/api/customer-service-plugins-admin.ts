@@ -1,5 +1,5 @@
 import { backendApiPath } from './paths';
-import type { HttpClient } from '../http/client';
+import type { ApiRequestOptions, HttpClient } from '../http/client';
 
 import type { CustomerservicePluginsAdminListPageData, PluginEnablementSummary, UpsertPluginEnablementRequest } from '../types';
 
@@ -12,8 +12,8 @@ export class CustomerServicePluginsAdminCustomerservicePluginsAdminEnablementApi
   }
 
 
-async upsert(pluginCode: string, body: UpsertPluginEnablementRequest): Promise<PluginEnablementSummary> {
-    return this.client.put<PluginEnablementSummary>(backendApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/enablement`), body, undefined, undefined, 'application/json');
+async update(pluginCode: string, body: UpsertPluginEnablementRequest, requestOptions?: ApiRequestOptions): Promise<PluginEnablementSummary> {
+    return this.client.request<PluginEnablementSummary>(backendApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/enablement`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'PUT' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
@@ -27,39 +27,33 @@ export class CustomerServicePluginsAdminCustomerservicePluginsAdminApi {
   }
 
 
-async list(): Promise<CustomerservicePluginsAdminListPageData> {
-    return this.client.get<CustomerservicePluginsAdminListPageData>(backendApiPath(`/customer_services/plugins`));
+async list(requestOptions?: ApiRequestOptions): Promise<CustomerservicePluginsAdminListPageData> {
+    return this.client.request<CustomerservicePluginsAdminListPageData>(backendApiPath(`/customer_services/plugins`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 }
 
 export class CustomerServicePluginsAdminCustomerservicePluginsApi {
-  private client: HttpClient;
   public readonly admin: CustomerServicePluginsAdminCustomerservicePluginsAdminApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.admin = new CustomerServicePluginsAdminCustomerservicePluginsAdminApi(client);
   }
 
 }
 
 export class CustomerServicePluginsAdminCustomerserviceApi {
-  private client: HttpClient;
   public readonly plugins: CustomerServicePluginsAdminCustomerservicePluginsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.plugins = new CustomerServicePluginsAdminCustomerservicePluginsApi(client);
   }
 
 }
 
 export class CustomerServicePluginsAdminApi {
-  private client: HttpClient;
   public readonly customerservice: CustomerServicePluginsAdminCustomerserviceApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.customerservice = new CustomerServicePluginsAdminCustomerserviceApi(client);
   }
 
@@ -69,13 +63,7 @@ export function createCustomerServicePluginsAdminApi(client: HttpClient): Custom
   return new CustomerServicePluginsAdminApi(client);
 }
 
-function appendQueryString(path: string, rawQueryString: string): string {
-  const query = rawQueryString.replace(/^\?+/, '');
-  if (!query) {
-    return path;
-  }
-  return path.includes('?') ? `${path}&${query}` : `${path}?${query}`;
-}
+
 
 interface PathParameterSpec {
   name: string;

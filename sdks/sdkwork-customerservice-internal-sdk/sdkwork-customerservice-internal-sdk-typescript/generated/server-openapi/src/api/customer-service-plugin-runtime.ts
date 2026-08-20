@@ -1,5 +1,5 @@
 import { customApiPath } from './paths';
-import type { HttpClient } from '../http/client';
+import type { ApiRequestOptions, HttpClient } from '../http/client';
 
 import type { AccountRuntimeStatus, DeliveryPreCheckRequest, DeliveryPreCheckResult, SendPluginMessageRequest, SendPluginMessageResult } from '../types';
 
@@ -12,66 +12,58 @@ export class CustomerServicePluginRuntimeCustomerservicePluginsInternalAccountsA
   }
 
 
-async start(pluginCode: string, accountId: string): Promise<AccountRuntimeStatus> {
-    return this.client.post<AccountRuntimeStatus>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/start`));
+async start(pluginCode: string, accountId: string, requestOptions?: ApiRequestOptions): Promise<AccountRuntimeStatus> {
+    return this.client.request<AccountRuntimeStatus>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/start`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, sdkworkUnwrapKind: 'item' });
   }
 
-async stop(pluginCode: string, accountId: string): Promise<AccountRuntimeStatus> {
-    return this.client.post<AccountRuntimeStatus>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/stop`));
+async stop(pluginCode: string, accountId: string, requestOptions?: ApiRequestOptions): Promise<AccountRuntimeStatus> {
+    return this.client.request<AccountRuntimeStatus>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/stop`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, sdkworkUnwrapKind: 'item' });
   }
 
-async status(pluginCode: string, accountId: string): Promise<AccountRuntimeStatus> {
-    return this.client.get<AccountRuntimeStatus>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/status`));
+async status(pluginCode: string, accountId: string, requestOptions?: ApiRequestOptions): Promise<AccountRuntimeStatus> {
+    return this.client.request<AccountRuntimeStatus>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/status`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'item' });
   }
 
-async sendMessage(pluginCode: string, accountId: string, body: SendPluginMessageRequest): Promise<SendPluginMessageResult> {
-    return this.client.post<SendPluginMessageResult>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/send_message`), body, undefined, undefined, 'application/json');
+async sendMessage(pluginCode: string, accountId: string, body: SendPluginMessageRequest, requestOptions?: ApiRequestOptions): Promise<SendPluginMessageResult> {
+    return this.client.request<SendPluginMessageResult>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/send_message`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 
-async deliveryPreCheck(pluginCode: string, accountId: string, body: DeliveryPreCheckRequest): Promise<DeliveryPreCheckResult> {
-    return this.client.post<DeliveryPreCheckResult>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/delivery_pre_check`), body, undefined, undefined, 'application/json');
+async deliveryPreCheck(pluginCode: string, accountId: string, body: DeliveryPreCheckRequest, requestOptions?: ApiRequestOptions): Promise<DeliveryPreCheckResult> {
+    return this.client.request<DeliveryPreCheckResult>(customApiPath(`/customer_services/plugins/${serializePathParameter(pluginCode, { name: 'pluginCode', style: 'simple', explode: false })}/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/delivery_pre_check`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
 export class CustomerServicePluginRuntimeCustomerservicePluginsInternalApi {
-  private client: HttpClient;
   public readonly accounts: CustomerServicePluginRuntimeCustomerservicePluginsInternalAccountsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.accounts = new CustomerServicePluginRuntimeCustomerservicePluginsInternalAccountsApi(client);
   }
 
 }
 
 export class CustomerServicePluginRuntimeCustomerservicePluginsApi {
-  private client: HttpClient;
   public readonly internal: CustomerServicePluginRuntimeCustomerservicePluginsInternalApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.internal = new CustomerServicePluginRuntimeCustomerservicePluginsInternalApi(client);
   }
 
 }
 
 export class CustomerServicePluginRuntimeCustomerserviceApi {
-  private client: HttpClient;
   public readonly plugins: CustomerServicePluginRuntimeCustomerservicePluginsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.plugins = new CustomerServicePluginRuntimeCustomerservicePluginsApi(client);
   }
 
 }
 
 export class CustomerServicePluginRuntimeApi {
-  private client: HttpClient;
   public readonly customerservice: CustomerServicePluginRuntimeCustomerserviceApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.customerservice = new CustomerServicePluginRuntimeCustomerserviceApi(client);
   }
 
@@ -81,13 +73,7 @@ export function createCustomerServicePluginRuntimeApi(client: HttpClient): Custo
   return new CustomerServicePluginRuntimeApi(client);
 }
 
-function appendQueryString(path: string, rawQueryString: string): string {
-  const query = rawQueryString.replace(/^\?+/, '');
-  if (!query) {
-    return path;
-  }
-  return path.includes('?') ? `${path}&${query}` : `${path}?${query}`;
-}
+
 
 interface PathParameterSpec {
   name: string;

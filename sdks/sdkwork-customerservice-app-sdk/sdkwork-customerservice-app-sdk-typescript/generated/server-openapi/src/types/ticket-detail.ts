@@ -6,9 +6,9 @@ export interface TicketDetail {
   priority: string;
   channel: string;
   requesterUserId: string;
-  assigneeUserId?: string;
+  assigneeUserId?: string | null;
   createdAt: string;
   updatedAt: string;
-  organizationId?: string;
-  closedAt?: string;
+  organizationId?: string | null;
+  closedAt?: string | null;
 }

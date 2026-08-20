@@ -6,7 +6,7 @@ export interface TicketSummary {
   priority: string;
   channel: string;
   requesterUserId: string;
-  assigneeUserId?: string;
+  assigneeUserId?: string | null;
   createdAt: string;
   updatedAt: string;
 }

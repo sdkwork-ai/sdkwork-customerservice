@@ -1,5 +1,5 @@
 import { backendApiPath } from './paths';
-import type { HttpClient } from '../http/client';
+import type { ApiRequestOptions, HttpClient } from '../http/client';
 
 import type { CustomerserviceTicketsAdminListPageData, CustomerserviceTicketsAdminMessagesListPageData, SendTicketMessageRequest, TicketDetail, TicketMessage, UpdateTicketRequest } from '../types';
 
@@ -12,12 +12,12 @@ export class CustomerServiceTicketsAdminCustomerserviceTicketsAdminMessagesApi {
   }
 
 
-async list(ticketId: string): Promise<CustomerserviceTicketsAdminMessagesListPageData> {
-    return this.client.get<CustomerserviceTicketsAdminMessagesListPageData>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`));
+async list(ticketId: string, requestOptions?: ApiRequestOptions): Promise<CustomerserviceTicketsAdminMessagesListPageData> {
+    return this.client.request<CustomerserviceTicketsAdminMessagesListPageData>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async create(ticketId: string, body: SendTicketMessageRequest): Promise<TicketMessage> {
-    return this.client.post<TicketMessage>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`), body, undefined, undefined, 'application/json');
+async create(ticketId: string, body: SendTicketMessageRequest, requestOptions?: ApiRequestOptions): Promise<TicketMessage> {
+    return this.client.request<TicketMessage>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
@@ -37,52 +37,46 @@ export class CustomerServiceTicketsAdminCustomerserviceTicketsAdminApi {
   }
 
 
-async list(params?: CustomerServiceTicketsAdminCustomerserviceTicketsAdminListParams): Promise<CustomerserviceTicketsAdminListPageData> {
+async list(params?: CustomerServiceTicketsAdminCustomerserviceTicketsAdminListParams, requestOptions?: ApiRequestOptions): Promise<CustomerserviceTicketsAdminListPageData> {
     const query = buildQueryString([
       { name: 'status', value: params?.status, style: 'form', explode: true, allowReserved: false },
       { name: 'page', value: params?.page, style: 'form', explode: true, allowReserved: false },
-      { name: 'pageSize', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
+      { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<CustomerserviceTicketsAdminListPageData>(appendQueryString(backendApiPath(`/customer_services/tickets`), query));
+    return this.client.request<CustomerserviceTicketsAdminListPageData>(appendQueryString(backendApiPath(`/customer_services/tickets`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async retrieve(ticketId: string): Promise<TicketDetail> {
-    return this.client.get<TicketDetail>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}`));
+async retrieve(ticketId: string, requestOptions?: ApiRequestOptions): Promise<TicketDetail> {
+    return this.client.request<TicketDetail>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'item' });
   }
 
-async update(ticketId: string, body: UpdateTicketRequest): Promise<TicketDetail> {
-    return this.client.patch<TicketDetail>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}`), body, undefined, undefined, 'application/json');
+async update(ticketId: string, body: UpdateTicketRequest, requestOptions?: ApiRequestOptions): Promise<TicketDetail> {
+    return this.client.request<TicketDetail>(backendApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'PATCH' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
 export class CustomerServiceTicketsAdminCustomerserviceTicketsApi {
-  private client: HttpClient;
   public readonly admin: CustomerServiceTicketsAdminCustomerserviceTicketsAdminApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.admin = new CustomerServiceTicketsAdminCustomerserviceTicketsAdminApi(client);
   }
 
 }
 
 export class CustomerServiceTicketsAdminCustomerserviceApi {
-  private client: HttpClient;
   public readonly tickets: CustomerServiceTicketsAdminCustomerserviceTicketsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.tickets = new CustomerServiceTicketsAdminCustomerserviceTicketsApi(client);
   }
 
 }
 
 export class CustomerServiceTicketsAdminApi {
-  private client: HttpClient;
   public readonly customerservice: CustomerServiceTicketsAdminCustomerserviceApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.customerservice = new CustomerServiceTicketsAdminCustomerserviceApi(client);
   }
 

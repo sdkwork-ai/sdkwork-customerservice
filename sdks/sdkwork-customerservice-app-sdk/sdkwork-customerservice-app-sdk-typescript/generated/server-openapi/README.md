@@ -30,8 +30,7 @@ client.setAccessToken('your-access-token');
 const params = {
   status: 'status',
   page: 2,
-  pageSize: 3,
-  limit: 4,
+  page_size: 3,
 };
 const result = await client.customerServiceTickets.customerservice.tickets.list(params);
 ```
@@ -71,8 +70,7 @@ const client = new SdkworkAppClient({
 const params = {
   status: 'status',
   page: 2,
-  pageSize: 3,
-  limit: 4,
+  page_size: 3,
 };
 const result = await client.customerServiceTickets.customerservice.tickets.list(params);
 ```
@@ -86,8 +84,7 @@ try {
   const params = {
     status: 'status',
     page: 2,
-    pageSize: 3,
-    limit: 4,
+    page_size: 3,
   };
   const result = await client.customerServiceTickets.customerservice.tickets.list(params);
 } catch (error) {
@@ -109,6 +106,8 @@ This SDK includes cross-platform publish scripts in `bin/`:
 - `bin/publish-core.mjs`
 - `bin/publish.sh`
 - `bin/publish.ps1`
+
+TypeScript check and publish commands use pnpm to materialize workspace dependency versions in a temporary tarball. They reject local-only dependency protocols before npm publication and do not rewrite the source `package.json`.
 
 ### Check
 

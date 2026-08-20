@@ -12,7 +12,7 @@
   "generatedFiles": [
     {
       "path": "bin/publish-core.mjs",
-      "sha256": "98ad0918a78bfbe22bf8f12fec709b0bed545b9e01edd40f5e4abf31a23378a5"
+      "sha256": "a47e95119bf3eafcbcb2102f7024c147f967924e4e3f343d1a29effb4b6765df"
     },
     {
       "path": "bin/publish.ps1",
@@ -40,11 +40,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "920397a9b3e6726aa0b41895924fe74ca6087c650188fa61838c54870a3e10d7"
+      "sha256": "0001e7937c265181f685e886b59742594f7bfdacbf177557d7a1d41afe575736"
     },
     {
       "path": "README.md",
-      "sha256": "a4124ec5ee361492e2d2ca3537070b0f0a3990f34a3de45321773e63ce7cbc3a"
+      "sha256": "957ff251ed2e2b846e4f8a8f0850b295954bfa8aacfb3d0ed813bddaa6f30a74"
     },
     {
       "path": "sdkwork-sdk.json",
@@ -52,19 +52,19 @@
     },
     {
       "path": "src/api/base.ts",
-      "sha256": "02ad25e6bf331ff241ba387c2947ddf1900dd849038e08c2757416a3aa788a04"
+      "sha256": "94d136c54a008dfe7602e373a0b2c79176bbf2fc6e7c899fc23b1f12f750380f"
     },
     {
       "path": "src/api/customer-service-channels-admin.ts",
-      "sha256": "9bb503b760a2417a0cb5549ddf43f0adb5dadf1585b54b91c26019b3ac135341"
+      "sha256": "549df184e27de42a0945d3004a30ce548c535effe644bb755af44c29569ec96c"
     },
     {
       "path": "src/api/customer-service-plugins-admin.ts",
-      "sha256": "11418975862c88338f0103d887a8090538974adaaca816d376abd1b19d963b5a"
+      "sha256": "a0e34bd576cc7362e6c3f501758c23d794e2ad266e23c930164356da5faec487"
     },
     {
       "path": "src/api/customer-service-tickets-admin.ts",
-      "sha256": "9af10f21d5bc7ca561cb7f1746dfad9d7fcce0de7ce3d77b30c2835aafb364a7"
+      "sha256": "b980ed25a1634379885a1d62239d24153bfd6f2721d51fb3ee54604dadec025a"
     },
     {
       "path": "src/api/index.ts",
@@ -80,7 +80,7 @@
     },
     {
       "path": "src/http/client.ts",
-      "sha256": "6e389d5c14fb5845365972b6776af185d8af8eb8da7bb398e59be6c29e394ddf"
+      "sha256": "bab0f740731f04f1f6e3c591cba91b1577f0ca521054d187755f437925d3dc6d"
     },
     {
       "path": "src/http/index.ts",
@@ -100,11 +100,11 @@
     },
     {
       "path": "src/types/auto-reply-rule-summary.ts",
-      "sha256": "541dc25d892500c815af5d17d33a1d532fa3cc78f7d65a815de04740d442a2fd"
+      "sha256": "82485dc5dd47483df87117a3fb661fd23a1cd849d36ba46267d1c18865dd0fe5"
     },
     {
       "path": "src/types/channel-account-summary.ts",
-      "sha256": "f007b943f3b2ef387d56498aad4423e8cd91ae1df1640216d768a153f4353d6d"
+      "sha256": "350140d473d3a847964e9a3707173274a3e636399a0c7e3de7cea77f76c27102"
     },
     {
       "path": "src/types/common.ts",
@@ -276,7 +276,7 @@
     },
     {
       "path": "src/types/delivery-block-rule-summary.ts",
-      "sha256": "eae4c7d61f5edc29e112de1eb1f3dc57bf6afb2ae88af5d639decf46212230f3"
+      "sha256": "ce73f34b371acbf52821edd6cc5d9f0603dc029e5ab5437c7447b1bb46a80e58"
     },
     {
       "path": "src/types/field-error.ts",
@@ -344,7 +344,7 @@
     },
     {
       "path": "src/types/ticket-detail.ts",
-      "sha256": "53591c9e556d38b88e572ef2d09595d0e3ff1b650225683ba7e20270b808b37e"
+      "sha256": "b1842d6292412869c2c8fffbcf8c76e4c1473e24b17b7ee344b6291ccfd4c896"
     },
     {
       "path": "src/types/ticket-message.ts",
@@ -352,7 +352,7 @@
     },
     {
       "path": "src/types/ticket-summary.ts",
-      "sha256": "268f93051b667f1bc0c4fdff49952d981c46b690cd0baf83863f2e19e55fdcc1"
+      "sha256": "3032c7f21669fa4b37fc20d097dc43e12ce0c162147c4895eb2313e6c9e0b4af"
     },
     {
       "path": "src/types/update-auto-reply-rule-request.ts",

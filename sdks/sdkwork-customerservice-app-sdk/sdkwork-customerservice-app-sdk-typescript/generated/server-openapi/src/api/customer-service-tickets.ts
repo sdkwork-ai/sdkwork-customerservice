@@ -1,5 +1,5 @@
 import { appApiPath } from './paths';
-import type { HttpClient } from '../http/client';
+import type { ApiRequestOptions, HttpClient } from '../http/client';
 
 import type { CreateTicketRequest, CustomerserviceTicketsAttachmentsListPageData, CustomerserviceTicketsListPageData, CustomerserviceTicketsMessagesListPageData, RegisterTicketAttachmentRequest, SendTicketMessageRequest, TicketAttachment, TicketDetail, TicketMessage } from '../types';
 
@@ -12,12 +12,12 @@ export class CustomerServiceTicketsCustomerserviceTicketsAttachmentsApi {
   }
 
 
-async list(ticketId: string): Promise<CustomerserviceTicketsAttachmentsListPageData> {
-    return this.client.get<CustomerserviceTicketsAttachmentsListPageData>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/attachments`));
+async list(ticketId: string, requestOptions?: ApiRequestOptions): Promise<CustomerserviceTicketsAttachmentsListPageData> {
+    return this.client.request<CustomerserviceTicketsAttachmentsListPageData>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/attachments`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async register(ticketId: string, body: RegisterTicketAttachmentRequest): Promise<TicketAttachment> {
-    return this.client.post<TicketAttachment>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/attachments`), body, undefined, undefined, 'application/json');
+async create(ticketId: string, body: RegisterTicketAttachmentRequest, requestOptions?: ApiRequestOptions): Promise<TicketAttachment> {
+    return this.client.request<TicketAttachment>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/attachments`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
@@ -29,12 +29,12 @@ export class CustomerServiceTicketsCustomerserviceTicketsMessagesApi {
   }
 
 
-async list(ticketId: string): Promise<CustomerserviceTicketsMessagesListPageData> {
-    return this.client.get<CustomerserviceTicketsMessagesListPageData>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`));
+async list(ticketId: string, requestOptions?: ApiRequestOptions): Promise<CustomerserviceTicketsMessagesListPageData> {
+    return this.client.request<CustomerserviceTicketsMessagesListPageData>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async create(ticketId: string, body: SendTicketMessageRequest): Promise<TicketMessage> {
-    return this.client.post<TicketMessage>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`), body, undefined, undefined, 'application/json');
+async create(ticketId: string, body: SendTicketMessageRequest, requestOptions?: ApiRequestOptions): Promise<TicketMessage> {
+    return this.client.request<TicketMessage>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}/messages`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
@@ -42,7 +42,6 @@ export interface CustomerServiceTicketsCustomerserviceTicketsListParams {
   status?: string;
   page?: number;
   pageSize?: number;
-  limit?: number;
 }
 
 export class CustomerServiceTicketsCustomerserviceTicketsApi {
@@ -57,42 +56,37 @@ export class CustomerServiceTicketsCustomerserviceTicketsApi {
   }
 
 
-async list(params?: CustomerServiceTicketsCustomerserviceTicketsListParams): Promise<CustomerserviceTicketsListPageData> {
+async list(params?: CustomerServiceTicketsCustomerserviceTicketsListParams, requestOptions?: ApiRequestOptions): Promise<CustomerserviceTicketsListPageData> {
     const query = buildQueryString([
       { name: 'status', value: params?.status, style: 'form', explode: true, allowReserved: false },
       { name: 'page', value: params?.page, style: 'form', explode: true, allowReserved: false },
-      { name: 'pageSize', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
-      { name: 'limit', value: params?.limit, style: 'form', explode: true, allowReserved: false },
+      { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<CustomerserviceTicketsListPageData>(appendQueryString(appApiPath(`/customer_services/tickets`), query));
+    return this.client.request<CustomerserviceTicketsListPageData>(appendQueryString(appApiPath(`/customer_services/tickets`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async create(body: CreateTicketRequest): Promise<TicketDetail> {
-    return this.client.post<TicketDetail>(appApiPath(`/customer_services/tickets`), body, undefined, undefined, 'application/json');
+async create(body: CreateTicketRequest, requestOptions?: ApiRequestOptions): Promise<TicketDetail> {
+    return this.client.request<TicketDetail>(appApiPath(`/customer_services/tickets`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 
-async retrieve(ticketId: string): Promise<TicketDetail> {
-    return this.client.get<TicketDetail>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}`));
+async retrieve(ticketId: string, requestOptions?: ApiRequestOptions): Promise<TicketDetail> {
+    return this.client.request<TicketDetail>(appApiPath(`/customer_services/tickets/${serializePathParameter(ticketId, { name: 'ticketId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'item' });
   }
 }
 
 export class CustomerServiceTicketsCustomerserviceApi {
-  private client: HttpClient;
   public readonly tickets: CustomerServiceTicketsCustomerserviceTicketsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.tickets = new CustomerServiceTicketsCustomerserviceTicketsApi(client);
   }
 
 }
 
 export class CustomerServiceTicketsApi {
-  private client: HttpClient;
   public readonly customerservice: CustomerServiceTicketsCustomerserviceApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.customerservice = new CustomerServiceTicketsCustomerserviceApi(client);
   }
 

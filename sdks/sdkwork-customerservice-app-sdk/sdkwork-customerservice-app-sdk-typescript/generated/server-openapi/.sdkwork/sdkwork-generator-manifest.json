@@ -12,7 +12,7 @@
   "generatedFiles": [
     {
       "path": "bin/publish-core.mjs",
-      "sha256": "98ad0918a78bfbe22bf8f12fec709b0bed545b9e01edd40f5e4abf31a23378a5"
+      "sha256": "a47e95119bf3eafcbcb2102f7024c147f967924e4e3f343d1a29effb4b6765df"
     },
     {
       "path": "bin/publish.ps1",
@@ -40,11 +40,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "719d93f1ec240cf5fea0755d173142f60c8ee1d41dd1387dcb0cd5d860effaa2"
+      "sha256": "df4da0e279134a89d093bbe9f3494c27d2356170c8f5c4b46c7ed0ba650d4988"
     },
     {
       "path": "README.md",
-      "sha256": "63b40ad71ee965b71b0f4da687f6f617ae2d4ece7eb0ed43a1e39df3ee00c441"
+      "sha256": "93d2af0f244d33ee564b8d53bda112802a9c2f57ed9c45ac860d826803a1eb31"
     },
     {
       "path": "sdkwork-sdk.json",
@@ -52,11 +52,11 @@
     },
     {
       "path": "src/api/base.ts",
-      "sha256": "02ad25e6bf331ff241ba387c2947ddf1900dd849038e08c2757416a3aa788a04"
+      "sha256": "94d136c54a008dfe7602e373a0b2c79176bbf2fc6e7c899fc23b1f12f750380f"
     },
     {
       "path": "src/api/customer-service-tickets.ts",
-      "sha256": "73ca1186e9f84c68b00c52465d481cf64dc4357a6e506e65b7dcd3a35d86cb8d"
+      "sha256": "f0f3daed02f40c1787f0421a761d8159b1ad6465f466cbec9e60d7710368f3e6"
     },
     {
       "path": "src/api/index.ts",
@@ -72,7 +72,7 @@
     },
     {
       "path": "src/http/client.ts",
-      "sha256": "902ecbf9b15072c147ac9716f22209cd50b770e517b55d1ce1583671ab4d2c3e"
+      "sha256": "868b7785497a93658b628de2d9b520d9d2456406bcf2ef717319beaa6913146d"
     },
     {
       "path": "src/http/index.ts",
@@ -212,7 +212,7 @@
     },
     {
       "path": "src/types/ticket-detail.ts",
-      "sha256": "53591c9e556d38b88e572ef2d09595d0e3ff1b650225683ba7e20270b808b37e"
+      "sha256": "b1842d6292412869c2c8fffbcf8c76e4c1473e24b17b7ee344b6291ccfd4c896"
     },
     {
       "path": "src/types/ticket-message.ts",
@@ -220,7 +220,7 @@
     },
     {
       "path": "src/types/ticket-summary.ts",
-      "sha256": "268f93051b667f1bc0c4fdff49952d981c46b690cd0baf83863f2e19e55fdcc1"
+      "sha256": "3032c7f21669fa4b37fc20d097dc43e12ce0c162147c4895eb2313e6c9e0b4af"
     },
     {
       "path": "tsconfig.json",

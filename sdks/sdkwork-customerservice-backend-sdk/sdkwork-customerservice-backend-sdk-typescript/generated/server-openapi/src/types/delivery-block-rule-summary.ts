@@ -1,5 +1,5 @@
 export interface DeliveryBlockRuleSummary {
-  id?: string;
+  id?: string | null;
   ruleCode: string;
   ruleName: string;
   ruleDescription: string;

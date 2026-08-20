@@ -67,7 +67,7 @@ const client = new SdkworkBackendClient({
 const params = {
   status: 'status',
   page: 2,
-  pageSize: 3,
+  page_size: 3,
 };
 const result = await client.customerServiceTicketsAdmin.customerservice.tickets.admin.list(params);
 ```
@@ -86,7 +86,7 @@ const result = await client.customerServicePluginsAdmin.customerservice.plugins.
 const params = {
   pluginCode: 'pluginCode',
   page: 2,
-  pageSize: 3,
+  page_size: 3,
 };
 const result = await client.customerServiceChannelsAdmin.customerservice.channels.admin.accounts.list(params);
 ```
@@ -117,6 +117,8 @@ This SDK includes cross-platform publish scripts in `bin/`:
 - `bin/publish-core.mjs`
 - `bin/publish.sh`
 - `bin/publish.ps1`
+
+TypeScript check and publish commands use pnpm to materialize workspace dependency versions in a temporary tarball. They reject local-only dependency protocols before npm publication and do not rewrite the source `package.json`.
 
 ### Check
 

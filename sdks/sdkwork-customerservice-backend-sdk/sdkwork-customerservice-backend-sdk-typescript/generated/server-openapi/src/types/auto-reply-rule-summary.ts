@@ -1,7 +1,7 @@
 export interface AutoReplyRuleSummary {
   id: string;
   tenantId: string;
-  accountId?: string;
+  accountId?: string | null;
   pluginCode: string;
   ruleKind: string;
   priority: number;

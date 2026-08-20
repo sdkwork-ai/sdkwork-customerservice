@@ -1,10 +1,10 @@
 import { backendApiPath } from './paths';
-import type { HttpClient } from '../http/client';
+import type { ApiRequestOptions, HttpClient } from '../http/client';
 
 import type { AccountRuntimeStatus, AutoReplyRuleSummary, ChannelAccountSummary, CreateAutoReplyRuleRequest, CreateChannelAccountRequest, CustomerserviceChannelsAdminAccountsListPageData, CustomerserviceChannelsAdminAutoReplyRulesListPageData, CustomerserviceChannelsAdminDeliveryBlockRulesCatalogPageData, CustomerserviceChannelsAdminDeliveryBlockRulesListPageData, CustomerserviceChannelsAdminDeliveryBlockRulesUpsertPageData, RegisterChannelCredentialRequest, SdkWorkCommandData, UpdateAutoReplyRuleRequest, UpdateChannelAccountRequest, UpsertDeliveryBlockRulesRequest } from '../types';
 
 
-export interface CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlockRulesCatalogParams {
+export interface CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlockRulesRetrieveParams {
   pluginCode: string;
 }
 
@@ -16,19 +16,19 @@ export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlo
   }
 
 
-async catalog(params: CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlockRulesCatalogParams): Promise<CustomerserviceChannelsAdminDeliveryBlockRulesCatalogPageData> {
+async retrieve(params: CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlockRulesRetrieveParams, requestOptions?: ApiRequestOptions): Promise<CustomerserviceChannelsAdminDeliveryBlockRulesCatalogPageData> {
     const query = buildQueryString([
       { name: 'pluginCode', value: params.pluginCode, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<CustomerserviceChannelsAdminDeliveryBlockRulesCatalogPageData>(appendQueryString(backendApiPath(`/customer_services/channels/delivery_block_rules/catalog`), query));
+    return this.client.request<CustomerserviceChannelsAdminDeliveryBlockRulesCatalogPageData>(appendQueryString(backendApiPath(`/customer_services/channels/delivery_block_rules/catalog`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async list(accountId: string): Promise<CustomerserviceChannelsAdminDeliveryBlockRulesListPageData> {
-    return this.client.get<CustomerserviceChannelsAdminDeliveryBlockRulesListPageData>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/delivery_block_rules`));
+async list(accountId: string, requestOptions?: ApiRequestOptions): Promise<CustomerserviceChannelsAdminDeliveryBlockRulesListPageData> {
+    return this.client.request<CustomerserviceChannelsAdminDeliveryBlockRulesListPageData>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/delivery_block_rules`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async upsert(accountId: string, body: UpsertDeliveryBlockRulesRequest): Promise<CustomerserviceChannelsAdminDeliveryBlockRulesUpsertPageData> {
-    return this.client.put<CustomerserviceChannelsAdminDeliveryBlockRulesUpsertPageData>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/delivery_block_rules`), body, undefined, undefined, 'application/json');
+async update(accountId: string, body: UpsertDeliveryBlockRulesRequest, requestOptions?: ApiRequestOptions): Promise<CustomerserviceChannelsAdminDeliveryBlockRulesUpsertPageData> {
+    return this.client.request<CustomerserviceChannelsAdminDeliveryBlockRulesUpsertPageData>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/delivery_block_rules`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'PUT' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'page' });
   }
 }
 
@@ -47,26 +47,26 @@ export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminAutoReplyRu
   }
 
 
-async list(params?: CustomerServiceChannelsAdminCustomerserviceChannelsAdminAutoReplyRulesListParams): Promise<CustomerserviceChannelsAdminAutoReplyRulesListPageData> {
+async list(params?: CustomerServiceChannelsAdminCustomerserviceChannelsAdminAutoReplyRulesListParams, requestOptions?: ApiRequestOptions): Promise<CustomerserviceChannelsAdminAutoReplyRulesListPageData> {
     const query = buildQueryString([
       { name: 'pluginCode', value: params?.pluginCode, style: 'form', explode: true, allowReserved: false },
       { name: 'accountId', value: params?.accountId, style: 'form', explode: true, allowReserved: false },
       { name: 'page', value: params?.page, style: 'form', explode: true, allowReserved: false },
-      { name: 'pageSize', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
+      { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<CustomerserviceChannelsAdminAutoReplyRulesListPageData>(appendQueryString(backendApiPath(`/customer_services/channels/auto_reply_rules`), query));
+    return this.client.request<CustomerserviceChannelsAdminAutoReplyRulesListPageData>(appendQueryString(backendApiPath(`/customer_services/channels/auto_reply_rules`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async create(body: CreateAutoReplyRuleRequest): Promise<AutoReplyRuleSummary> {
-    return this.client.post<AutoReplyRuleSummary>(backendApiPath(`/customer_services/channels/auto_reply_rules`), body, undefined, undefined, 'application/json');
+async create(body: CreateAutoReplyRuleRequest, requestOptions?: ApiRequestOptions): Promise<AutoReplyRuleSummary> {
+    return this.client.request<AutoReplyRuleSummary>(backendApiPath(`/customer_services/channels/auto_reply_rules`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 
-async update(ruleId: string, body: UpdateAutoReplyRuleRequest): Promise<AutoReplyRuleSummary> {
-    return this.client.patch<AutoReplyRuleSummary>(backendApiPath(`/customer_services/channels/auto_reply_rules/${serializePathParameter(ruleId, { name: 'ruleId', style: 'simple', explode: false })}`), body, undefined, undefined, 'application/json');
+async update(ruleId: string, body: UpdateAutoReplyRuleRequest, requestOptions?: ApiRequestOptions): Promise<AutoReplyRuleSummary> {
+    return this.client.request<AutoReplyRuleSummary>(backendApiPath(`/customer_services/channels/auto_reply_rules/${serializePathParameter(ruleId, { name: 'ruleId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'PATCH' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 
-async delete(ruleId: string): Promise<SdkWorkCommandData> {
-    return this.client.delete<SdkWorkCommandData>(backendApiPath(`/customer_services/channels/auto_reply_rules/${serializePathParameter(ruleId, { name: 'ruleId', style: 'simple', explode: false })}`));
+async delete(ruleId: string, requestOptions?: ApiRequestOptions): Promise<void> {
+    return this.client.request<void>(backendApiPath(`/customer_services/channels/auto_reply_rules/${serializePathParameter(ruleId, { name: 'ruleId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'DELETE' as any });
   }
 }
 
@@ -78,16 +78,16 @@ export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsRun
   }
 
 
-async start(accountId: string): Promise<AccountRuntimeStatus> {
-    return this.client.post<AccountRuntimeStatus>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/runtime/start`));
+async start(accountId: string, requestOptions?: ApiRequestOptions): Promise<AccountRuntimeStatus> {
+    return this.client.request<AccountRuntimeStatus>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/runtime/start`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, sdkworkUnwrapKind: 'item' });
   }
 
-async stop(accountId: string): Promise<AccountRuntimeStatus> {
-    return this.client.post<AccountRuntimeStatus>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/runtime/stop`));
+async stop(accountId: string, requestOptions?: ApiRequestOptions): Promise<AccountRuntimeStatus> {
+    return this.client.request<AccountRuntimeStatus>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/runtime/stop`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, sdkworkUnwrapKind: 'item' });
   }
 
-async status(accountId: string): Promise<AccountRuntimeStatus> {
-    return this.client.get<AccountRuntimeStatus>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/runtime/status`));
+async retrieve(accountId: string, requestOptions?: ApiRequestOptions): Promise<AccountRuntimeStatus> {
+    return this.client.request<AccountRuntimeStatus>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/runtime/status`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'item' });
   }
 }
 
@@ -99,8 +99,8 @@ export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsCre
   }
 
 
-async register(accountId: string, body: RegisterChannelCredentialRequest): Promise<SdkWorkCommandData> {
-    return this.client.post<SdkWorkCommandData>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/credentials`), body, undefined, undefined, 'application/json');
+async create(accountId: string, body: RegisterChannelCredentialRequest, requestOptions?: ApiRequestOptions): Promise<SdkWorkCommandData> {
+    return this.client.request<SdkWorkCommandData>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}/credentials`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'command' });
   }
 }
 
@@ -122,32 +122,30 @@ export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsApi
   }
 
 
-async list(params?: CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsListParams): Promise<CustomerserviceChannelsAdminAccountsListPageData> {
+async list(params?: CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsListParams, requestOptions?: ApiRequestOptions): Promise<CustomerserviceChannelsAdminAccountsListPageData> {
     const query = buildQueryString([
       { name: 'pluginCode', value: params?.pluginCode, style: 'form', explode: true, allowReserved: false },
       { name: 'page', value: params?.page, style: 'form', explode: true, allowReserved: false },
-      { name: 'pageSize', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
+      { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<CustomerserviceChannelsAdminAccountsListPageData>(appendQueryString(backendApiPath(`/customer_services/channels/accounts`), query));
+    return this.client.request<CustomerserviceChannelsAdminAccountsListPageData>(appendQueryString(backendApiPath(`/customer_services/channels/accounts`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async create(body: CreateChannelAccountRequest): Promise<ChannelAccountSummary> {
-    return this.client.post<ChannelAccountSummary>(backendApiPath(`/customer_services/channels/accounts`), body, undefined, undefined, 'application/json');
+async create(body: CreateChannelAccountRequest, requestOptions?: ApiRequestOptions): Promise<ChannelAccountSummary> {
+    return this.client.request<ChannelAccountSummary>(backendApiPath(`/customer_services/channels/accounts`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 
-async update(accountId: string, body: UpdateChannelAccountRequest): Promise<ChannelAccountSummary> {
-    return this.client.patch<ChannelAccountSummary>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}`), body, undefined, undefined, 'application/json');
+async update(accountId: string, body: UpdateChannelAccountRequest, requestOptions?: ApiRequestOptions): Promise<ChannelAccountSummary> {
+    return this.client.request<ChannelAccountSummary>(backendApiPath(`/customer_services/channels/accounts/${serializePathParameter(accountId, { name: 'accountId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'PATCH' as any, body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
   }
 }
 
 export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminApi {
-  private client: HttpClient;
   public readonly accounts: CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsApi;
   public readonly autoReplyRules: CustomerServiceChannelsAdminCustomerserviceChannelsAdminAutoReplyRulesApi;
   public readonly deliveryBlockRules: CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlockRulesApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.accounts = new CustomerServiceChannelsAdminCustomerserviceChannelsAdminAccountsApi(client);
     this.autoReplyRules = new CustomerServiceChannelsAdminCustomerserviceChannelsAdminAutoReplyRulesApi(client);
     this.deliveryBlockRules = new CustomerServiceChannelsAdminCustomerserviceChannelsAdminDeliveryBlockRulesApi(client);
@@ -156,33 +154,27 @@ export class CustomerServiceChannelsAdminCustomerserviceChannelsAdminApi {
 }
 
 export class CustomerServiceChannelsAdminCustomerserviceChannelsApi {
-  private client: HttpClient;
   public readonly admin: CustomerServiceChannelsAdminCustomerserviceChannelsAdminApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.admin = new CustomerServiceChannelsAdminCustomerserviceChannelsAdminApi(client);
   }
 
 }
 
 export class CustomerServiceChannelsAdminCustomerserviceApi {
-  private client: HttpClient;
   public readonly channels: CustomerServiceChannelsAdminCustomerserviceChannelsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.channels = new CustomerServiceChannelsAdminCustomerserviceChannelsApi(client);
   }
 
 }
 
 export class CustomerServiceChannelsAdminApi {
-  private client: HttpClient;
   public readonly customerservice: CustomerServiceChannelsAdminCustomerserviceApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.customerservice = new CustomerServiceChannelsAdminCustomerserviceApi(client);
   }
 
