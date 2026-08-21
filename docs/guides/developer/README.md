@@ -29,7 +29,7 @@ export SDKWORK_DATABASE_URL=postgres://sdkwork_ai_dev:sdkworkdev123@127.0.0.1:54
 pnpm db:bootstrap
 ```
 
-Development defaults live in `configs/topology/standalone.development.env`.
+Development defaults live in `etc/topology/standalone.development.env`.
 
 ## Verification
 
@@ -48,7 +48,7 @@ pnpm dev            # PC shell @ 5191
 pnpm dev:browser         # H5 shell @ 5192
 ```
 
-IAM login and Drive require the platform API gateway on `127.0.0.1:3900` (see `configs/topology/README.md`).
+IAM login and Drive require the platform API gateway on `127.0.0.1:3900` (see `etc/topology/README.md`).
 
 ## CI
 

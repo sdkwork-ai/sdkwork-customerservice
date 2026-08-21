@@ -41,7 +41,7 @@ Do not bypass federation failures with ad-hoc `file:` paths. Extend the consumer
 
 When debugging 401/404 across PC/H5 shells and the Rust gateway:
 
-1. **Topology** — confirm `specs/topology.spec.json` profile and `configs/topology/*.env` axes (`application` vs `platform` URLs).
+1. **Topology** — confirm `specs/topology.spec.json` profile and `etc/topology/*.env` axes (`application` vs `platform` URLs).
 2. **Archetype** — customerservice is `application-http-gateway`; customerservice routes live on application ingress, IAM/Drive on platform gateway.
 3. **Dev proxy** — PC/H5 Vite uses `buildCustomerServiceViteDevProxy()`; SDK base URLs become same-origin relative in dev unless `VITE_SDKWORK_CUSTOMER_SERVICE_VITE_DEV_PROXY_ENABLED=false`.
 4. **IAM** — PC uses `/auth/login` (`appAuthRuntime`); dual-token (`accessToken` + `authToken`) required for backend/app SDK calls.

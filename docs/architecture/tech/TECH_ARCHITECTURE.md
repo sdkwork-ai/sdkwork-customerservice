@@ -77,7 +77,7 @@ App list queries: `page`, `pageSize`, `limit` (alias), optional `status`.
 - Standalone bind: `CUSTOMER_SERVICE_API_BIND` (default `0.0.0.0:18091`)
 - Readiness: Postgres `SELECT 1` via `sdkwork-web-bootstrap` readiness probe
 - CORS: disabled by default; set `CUSTOMER_SERVICE_CORS_ALLOW_ALL=true` for local dev only
-- Topology profiles: `configs/topology/*.env` + `specs/topology.spec.json`
+- Topology profiles: `etc/topology/*.env` + `specs/topology.spec.json`
 - Deploy contract: `deployments/deploy.yaml` (validated by `pnpm deploy:validate`)
 - Release workflow: `sdkwork.workflow.json` + `.github/workflows/package.yml`
 
@@ -100,7 +100,7 @@ App list queries: `page`, `pageSize`, `limit` (alias), optional `status`.
 - H5 IAM login: same auth runtime factory with `platform: "h5"` and `H5AppAuthGate`
 - Shared IAM session bridge: `client-core/iam/customerServiceIamSession.ts`
 - Plugin admin UI: PC `PluginAdminPanel`, H5 `H5PluginAdminPanel` via `pluginAdminService`
-- Topology runbook: `configs/topology/README.md`
+- Topology runbook: `etc/topology/README.md`
 - Domain types: `@sdkwork/customerservice-contracts` re-exports generated SDK models plus UI labels
 - Generated SDKs: `sdks/sdkwork-customerservice-*-sdk/*-typescript/generated/server-openapi`
 

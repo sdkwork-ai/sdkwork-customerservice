@@ -8,7 +8,7 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../
 
 test("topology development profile defines dual connectivity planes", () => {
   const envText = readFileSync(
-    path.join(repoRoot, "configs/topology/standalone.unified-process.development.env"),
+    path.join(repoRoot, "etc/topology/standalone.development.env"),
     "utf8",
   );
   assert.match(envText, /SDKWORK_CUSTOMER_SERVICE_APPLICATION_PUBLIC_HTTP_URL=http:\/\/127\.0\.0\.1:18091/);

@@ -27,7 +27,7 @@ pnpm start             # HTTP API on CUSTOMER_SERVICE_API_BIND (default 0.0.0.0:
 pnpm dev               # PC operator console on http://127.0.0.1:5191
 ```
 
-Development uses dual connectivity planes (see `configs/topology/README.md`): customerservice routes on **18091**, IAM/Drive on platform gateway **3900**. PC/H5 sign in at `/auth/login` via `@sdkwork/auth-pc-react`.
+Development uses dual connectivity planes (see `etc/topology/README.md`): customerservice routes on **18091**, IAM/Drive on platform gateway **3900**. PC/H5 sign in at `/auth/login` via `@sdkwork/auth-pc-react`.
 
 Copy `apps/sdkwork-customerservice-pc/.env.example` for Vite topology URLs. Copy [`.env.example`](.env.example) for gateway/database secrets (use secret manager in production). Manual token paste is dev-only (`VITE_SDKWORK_CUSTOMER_SERVICE_DEV_MANUAL_SESSION=true`).
 

@@ -4,7 +4,7 @@
   "appId": "sdkwork-customerservice",
   "applicationCode": "customer_service",
   "archetype": "application-http-gateway",
-  "profileRoot": "configs/topology",
+  "profileRoot": "etc/topology",
   "profilePattern": "{deploymentProfile}.{environment}.env",
   "vocabulary": {
     "deploymentProfile": {
@@ -16,6 +16,8 @@
     "environment": {
       "allowed": [
         "development",
+        "test",
+        "staging",
         "production"
       ]
     }
@@ -27,10 +29,14 @@
     "desktopBuildProfileId": "standalone.production"
   },
   "profileFiles": {
-    "standalone.development": "configs/topology/standalone.development.env",
-    "standalone.production": "configs/topology/standalone.production.env",
-    "cloud.production": "configs/topology/cloud.production.env",
-    "cloud.development": "configs/topology/cloud.development.env"
+    "standalone.development": "etc/topology/standalone.development.env",
+    "standalone.test": "etc/topology/standalone.test.env",
+    "standalone.staging": "etc/topology/standalone.staging.env",
+    "standalone.production": "etc/topology/standalone.production.env",
+    "cloud.development": "etc/topology/cloud.development.env",
+    "cloud.test": "etc/topology/cloud.test.env",
+    "cloud.staging": "etc/topology/cloud.staging.env",
+    "cloud.production": "etc/topology/cloud.production.env"
   },
   "envKeys": {
     "deploymentProfile": "SDKWORK_CUSTOMER_SERVICE_DEPLOYMENT_PROFILE",
@@ -75,6 +81,52 @@
             "crate": "sdkwork-api-customerservice-standalone-gateway",
             "binary": "customerservice-server",
             "role": "api-standalone-gateway"
+          },
+          {
+            "id": "customerservice-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "bindEnv": "SDKWORK_CUSTOMER_SERVICE_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "browserDeliveries": [
+          {
+            "id": "customerservice-adaptive-web",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "customerservice-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-customerservice-pc",
+                "script": "dev",
+                "defaultPort": 4245,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-customerservice-h5",
+                "script": "dev",
+                "defaultPort": 4246,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
           }
         ]
       },
@@ -89,13 +141,194 @@
         ]
       },
       "cloud.development": {
-        "processes": [],
+        "processes": [
+          {
+            "id": "customerservice-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "bindEnv": "SDKWORK_CUSTOMER_SERVICE_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress",
+          "platform.api-gateway"
+        ],
+        "browserDeliveries": [
+          {
+            "id": "customerservice-adaptive-web",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "customerservice-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-customerservice-pc",
+                "script": "dev",
+                "defaultPort": 4245,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-customerservice-h5",
+                "script": "dev",
+                "defaultPort": 4246,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "cloud.production": {
+        "processes": [
+          {
+            "id": "customerservice-api",
+            "crate": "sdkwork-api-customerservice-standalone-gateway",
+            "binary": "customerservice-server",
+            "role": "api-standalone-gateway"
+          }
+        ],
         "healthSurfaces": [
           "application.public-ingress",
           "platform.api-gateway"
         ]
       },
-      "cloud.production": {
+      "standalone.test": {
+        "processes": [
+          {
+            "id": "customerservice-api",
+            "crate": "sdkwork-api-customerservice-standalone-gateway",
+            "binary": "customerservice-server",
+            "role": "api-standalone-gateway"
+          },
+          {
+            "id": "customerservice-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "bindEnv": "SDKWORK_CUSTOMER_SERVICE_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "browserDeliveries": [
+          {
+            "id": "customerservice-adaptive-web",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "customerservice-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-customerservice-pc",
+                "script": "dev",
+                "defaultPort": 4245,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-customerservice-h5",
+                "script": "dev",
+                "defaultPort": 4246,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "standalone.staging": {
+        "processes": [
+          {
+            "id": "customerservice-api",
+            "crate": "sdkwork-api-customerservice-standalone-gateway",
+            "binary": "customerservice-server",
+            "role": "api-standalone-gateway"
+          }
+        ]
+      },
+      "cloud.test": {
+        "processes": [
+          {
+            "id": "customerservice-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "bindEnv": "SDKWORK_CUSTOMER_SERVICE_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress",
+          "platform.api-gateway"
+        ],
+        "browserDeliveries": [
+          {
+            "id": "customerservice-adaptive-web",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "customerservice-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-customerservice-pc",
+                "script": "dev",
+                "defaultPort": 4245,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-customerservice-h5",
+                "script": "dev",
+                "defaultPort": 4246,
+                "portEnv": "SDKWORK_CUSTOMER_SERVICE_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "cloud.staging": {
         "processes": [
           {
             "id": "customerservice-api",

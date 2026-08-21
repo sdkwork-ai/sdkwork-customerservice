@@ -38,8 +38,8 @@ Manual token paste is available only when `VITE_SDKWORK_CUSTOMER_SERVICE_DEV_MAN
 
 | Profile | File |
 | --- | --- |
-| `standalone.unified-process.development` | `standalone.unified-process.development.env` |
-| `standalone.unified-process.production` | `standalone.unified-process.production.env` |
-| `cloud.split-services.production` | `cloud.split-services.production.env` |
+| `standalone.development` | `standalone.development.env` |
+| `standalone.production` | `standalone.production.env` |
+| `cloud.production` | `cloud.production.env` |
 
 Validate: `pnpm topology:validate` and `pnpm topology:profile:check`
