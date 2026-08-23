@@ -346,7 +346,90 @@
   },
   "cloudPublicHosts": {
     "platform.api-gateway": {
-      "httpHost": "api.sdkwork.com"
+      "httpHost": "api.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHosts": [
+            "api-dev.sdkwork.com",
+            "api-dev.birdcoder.com",
+            "api-dev.dtupay.com",
+            "api-dev.sdkwork.cn",
+            "api-dev.birdcoder.cn",
+            "api-dev.dtupay.cn"
+          ]
+        },
+        "test": {
+          "httpHosts": [
+            "api-test.sdkwork.com",
+            "api-test.birdcoder.com",
+            "api-test.dtupay.com",
+            "api-test.sdkwork.cn",
+            "api-test.birdcoder.cn",
+            "api-test.dtupay.cn"
+          ]
+        },
+        "staging": {
+          "httpHosts": [
+            "api-staging.sdkwork.com",
+            "api-staging.birdcoder.com",
+            "api-staging.dtupay.com",
+            "api-staging.sdkwork.cn",
+            "api-staging.birdcoder.cn",
+            "api-staging.dtupay.cn"
+          ]
+        }
+      },
+      "httpHosts": [
+        "api.sdkwork.com",
+        "api.birdcoder.com",
+        "api.dtupay.com",
+        "api.sdkwork.cn",
+        "api.birdcoder.cn",
+        "api.dtupay.cn"
+      ]
+    },
+    "application.public-ingress": {
+      "httpHost": "customer-service.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHosts": [
+            "customer-service-dev.sdkwork.com",
+            "customer-service-dev.birdcoder.com",
+            "customer-service-dev.dtupay.com",
+            "customer-service-dev.sdkwork.cn",
+            "customer-service-dev.birdcoder.cn",
+            "customer-service-dev.dtupay.cn"
+          ]
+        },
+        "test": {
+          "httpHosts": [
+            "customer-service-test.sdkwork.com",
+            "customer-service-test.birdcoder.com",
+            "customer-service-test.dtupay.com",
+            "customer-service-test.sdkwork.cn",
+            "customer-service-test.birdcoder.cn",
+            "customer-service-test.dtupay.cn"
+          ]
+        },
+        "staging": {
+          "httpHosts": [
+            "customer-service-staging.sdkwork.com",
+            "customer-service-staging.birdcoder.com",
+            "customer-service-staging.dtupay.com",
+            "customer-service-staging.sdkwork.cn",
+            "customer-service-staging.birdcoder.cn",
+            "customer-service-staging.dtupay.cn"
+          ]
+        }
+      },
+      "httpHosts": [
+        "customer-service.sdkwork.com",
+        "customer-service.birdcoder.com",
+        "customer-service.dtupay.com",
+        "customer-service.sdkwork.cn",
+        "customer-service.birdcoder.cn",
+        "customer-service.dtupay.cn"
+      ]
     }
   },
   "packaging": {
