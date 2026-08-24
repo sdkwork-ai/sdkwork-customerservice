@@ -40,6 +40,38 @@ profiles:
         tls: dtupay.cn
         mode: web+api
         web: pc
+      - domain: customer-service-test.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.86offer.cn
+        tls: 86offer.cn
+        mode: web+api
+        web: pc
     packages: []
     overrides:
       topology:
@@ -85,6 +117,38 @@ profiles:
         web: pc
       - domain: customer-service-staging.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.86offer.cn
+        tls: 86offer.cn
         mode: web+api
         web: pc
     packages: []
@@ -134,6 +198,38 @@ profiles:
         tls: dtupay.cn
         mode: web+api
         web: pc
+      - domain: customer-service.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.86offer.cn
+        tls: 86offer.cn
+        mode: web+api
+        web: pc
     packages: []
     overrides:
       topology:
@@ -179,6 +275,38 @@ profiles:
         web: pc
       - domain: customer-service.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: customer-service.86offer.cn
+        tls: 86offer.cn
         mode: web+api
         web: pc
     packages: []
