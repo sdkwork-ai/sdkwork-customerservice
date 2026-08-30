@@ -131,7 +131,8 @@
               }
             }
           }
-        ]
+        ],
+        "healthSurfaces": []
       },
       "standalone.production": {
         "processes": [
@@ -140,6 +141,25 @@
             "crate": "sdkwork-api-customerservice-standalone-gateway",
             "binary": "customerservice-server",
             "role": "api-standalone-gateway"
+          }
+        ],
+        "healthSurfaces": [],
+        "browserDeliveries": [
+          {
+            "id": "customerservice-static-v1",
+            "applicationRoot": "apps/sdkwork-customerservice-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "gateway-static",
+            "apiSurfaceId": "application.public-ingress",
+            "hostProcessId": "customerservice-api",
+            "buildOutput": "apps/sdkwork-customerservice-pc/dist",
+            "runtimeRootEnv": "SDKWORK_CUSTOMERSERVICE_PC_STATIC_ROOT",
+            "mountPath": "/",
+            "spaFallback": "/index.html"
           }
         ]
       },
@@ -265,7 +285,8 @@
               }
             }
           }
-        ]
+        ],
+        "healthSurfaces": []
       },
       "standalone.staging": {
         "processes": [
@@ -275,7 +296,9 @@
             "binary": "customerservice-server",
             "role": "api-standalone-gateway"
           }
-        ]
+        ],
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "cloud.test": {
         "processes": [
@@ -347,7 +370,8 @@
       },
       "standalone.demo": {
         "processes": [],
-        "healthSurfaces": []
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "cloud.demo": {
         "processes": [],

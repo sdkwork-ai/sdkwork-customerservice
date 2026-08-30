@@ -129,7 +129,8 @@
             "AuthToken": [],
             "AccessToken": []
           }
-        ]
+        ],
+        "parameters": []
       }
     },
     "/app/v3/api/customer_services/tickets/{ticketId}": {
@@ -515,11 +516,9 @@
             ]
           },
           "sizeBytes": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "format": "int64"
+            "type": "string",
+            "format": "int64",
+            "x-sdkwork-int64-string": true
           },
           "uploadedByUserId": {
             "type": "string",
@@ -597,8 +596,9 @@
             "type": "string"
           },
           "sizeBytes": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string",
+            "format": "int64",
+            "x-sdkwork-int64-string": true
           }
         }
       },
