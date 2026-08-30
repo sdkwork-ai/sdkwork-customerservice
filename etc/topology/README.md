@@ -41,5 +41,7 @@ Manual token paste is available only when `VITE_SDKWORK_CUSTOMER_SERVICE_DEV_MAN
 | `standalone.development` | `standalone.development.env` |
 | `standalone.production` | `standalone.production.env` |
 | `cloud.production` | `cloud.production.env` |
+| `standalone.demo` | `standalone.demo.env` |
+| `cloud.demo` | `cloud.demo.env` |
 
 Validate: `pnpm topology:validate` and `pnpm topology:profile:check`
