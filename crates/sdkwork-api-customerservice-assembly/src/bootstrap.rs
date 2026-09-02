@@ -7,7 +7,7 @@
 use axum::Router;
 use sdkwork_customerservice_service_host::CustomerServiceHost;
 use sdkwork_database_sqlx::DatabasePool;
-use sdkwork_web_bootstrap::{ApiAssemblyContribution, DatabasePoolReadinessCheck, ReadinessCheck};
+use sdkwork_web_bootstrap::{ApiAssemblyContribution, DatabasePoolReadinessCheck, ReadinessCheck, WebModule};
 use sdkwork_web_core::HttpRouteManifest;
 use std::future::Future;
 use std::pin::Pin;
@@ -105,4 +105,17 @@ pub async fn assemble_api_router_with_pool(pool: DatabasePool) -> Result<ApiAsse
         .merge(backend_router)
         .merge(internal_router);
     contribution_from(router, Arc::new(DatabasePoolReadinessCheck::new(pool)))
+}
+
+/// Canonical Web Module definition for this application
+/// (API_ASSEMBLY_SPEC §4.1.1): the complete HTTP surface — every route,
+/// manifest, and OpenAPI document of this owner — as one installable module.
+pub async fn web_module() -> Result<WebModule, String> {
+    Ok(WebModule::from_contribution(assemble_api_router_from_env().await?))
+}
+
+/// Same as [`web_module`] but composed on a process-shared database pool
+/// (platform gateways, API_ASSEMBLY_SPEC §4.1.1).
+pub async fn web_module_with_pool(pool: DatabasePool) -> Result<WebModule, String> {
+    Ok(WebModule::from_contribution(assemble_api_router_with_pool(pool).await?))
 }
