@@ -36,7 +36,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.read",
         "x-sdkwork-auth-mode": "dual-token",
         "parameters": [
           {
@@ -100,7 +99,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.write",
         "x-sdkwork-auth-mode": "dual-token",
         "requestBody": {
           "required": true,
@@ -142,7 +140,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.read",
         "x-sdkwork-auth-mode": "dual-token",
         "parameters": [
           {
@@ -184,7 +181,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.read",
         "x-sdkwork-auth-mode": "dual-token",
         "parameters": [
           {
@@ -224,7 +220,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.write",
         "x-sdkwork-auth-mode": "dual-token",
         "parameters": [
           {
@@ -276,7 +271,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.read",
         "x-sdkwork-auth-mode": "dual-token",
         "parameters": [
           {
@@ -316,7 +310,6 @@
         "x-sdkwork-owner": "sdkwork-customerservice",
         "x-sdkwork-api-authority": "sdkwork-customerservice-app-api",
         "x-sdkwork-source-route-crate": "sdkwork-routes-customerservice-app-api",
-        "x-sdkwork-permission": "customerservice.tickets.write",
         "x-sdkwork-auth-mode": "dual-token",
         "parameters": [
           {
