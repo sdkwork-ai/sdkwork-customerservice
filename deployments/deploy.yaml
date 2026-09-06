@@ -28,6 +28,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: customer-service-test.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: customer-service-test.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -38,6 +42,10 @@ profiles:
         web: pc
       - domain: customer-service-test.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-test.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: customer-service-test.skubc.com
@@ -107,6 +115,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: customer-service-staging.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: customer-service-staging.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -117,6 +129,10 @@ profiles:
         web: pc
       - domain: customer-service-staging.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service-staging.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: customer-service-staging.skubc.com
@@ -186,6 +202,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: customer-service.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: customer-service.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -196,6 +216,10 @@ profiles:
         web: pc
       - domain: customer-service.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: customer-service.skubc.com
@@ -265,6 +289,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: customer-service.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: customer-service.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -275,6 +303,10 @@ profiles:
         web: pc
       - domain: customer-service.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: customer-service.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: customer-service.skubc.com
