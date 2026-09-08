@@ -1,9 +1,8 @@
 import { isBlank } from "@sdkwork/utils";
+import { resolveBaseUrl } from "@sdkwork/sdk-common";
 
 import {
   CUSTOMER_SERVICE_APP_API_SEGMENT,
-  DEFAULT_LOCAL_APPLICATION_PUBLIC_HTTP_URL,
-  DEFAULT_LOCAL_PLATFORM_API_GATEWAY_HTTP_URL,
   SDKWORK_APP_API_PREFIX,
   SDKWORK_BACKEND_API_PREFIX,
   VITE_SDKWORK_CUSTOMER_SERVICE_APPLICATION_PUBLIC_HTTP_URL,
@@ -129,9 +128,9 @@ export function resolveCustomerServiceApplicationBaseUrl(
   const candidate =
     explicit ??
     readSdkBaseUrlEnvValue(VITE_SDKWORK_CUSTOMER_SERVICE_APPLICATION_PUBLIC_HTTP_URL, env) ??
-    DEFAULT_LOCAL_APPLICATION_PUBLIC_HTTP_URL;
+    resolveBaseUrl().url;
   if (isBlank(candidate)) {
-    return DEFAULT_LOCAL_APPLICATION_PUBLIC_HTTP_URL;
+    return resolveBaseUrl().url;
   }
   return normalizeHttpSdkBaseUrl(candidate.replace(/\/+$/u, ""));
 }
@@ -146,9 +145,9 @@ export function resolvePlatformApiGatewayBaseUrl(
   const candidate =
     explicit ??
     readSdkBaseUrlEnvValue(VITE_SDKWORK_CUSTOMER_SERVICE_PLATFORM_API_GATEWAY_HTTP_URL, env) ??
-    DEFAULT_LOCAL_PLATFORM_API_GATEWAY_HTTP_URL;
+    resolveBaseUrl().url;
   if (isBlank(candidate)) {
-    return DEFAULT_LOCAL_PLATFORM_API_GATEWAY_HTTP_URL;
+    return resolveBaseUrl().url;
   }
   return normalizeHttpSdkBaseUrl(candidate.replace(/\/+$/u, ""));
 }
