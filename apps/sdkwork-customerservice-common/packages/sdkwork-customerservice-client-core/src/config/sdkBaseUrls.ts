@@ -1,5 +1,5 @@
 import { isBlank } from "@sdkwork/utils";
-import { resolveBaseUrl } from "@sdkwork/sdk-common";
+import {resolveBaseUrlWithAlignProtocol} from "@sdkwork/sdk-common";
 
 import {
   CUSTOMER_SERVICE_APP_API_SEGMENT,
@@ -91,6 +91,35 @@ export function normalizeHttpSdkBaseUrl(
   }
 }
 
+/**
+ * ENVIRONMENT_SPEC §6.3 protocol adaptation: the serving edge terminates HTTP
+ * and HTTPS on the same API host, so a browser-resolved explicit env base URL
+ * MUST use the page scheme — an http:// page targets the http:// origin (a
+ * TLS-less dev edge closes https:// connections) and an https:// page targets
+ * https:// (mixed-content blocks). Server/native runtimes keep the authored
+ * scheme.
+ */
+function alignBrowserBaseUrlPageProtocol(value: string): string {
+  if (typeof window === "undefined") {
+    return value;
+  }
+  try {
+    const parsedUrl = new URL(value);
+    const pageProtocol = window.location.protocol;
+    if (
+      (parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:")
+      && (pageProtocol === "http:" || pageProtocol === "https:")
+      && parsedUrl.protocol !== pageProtocol
+    ) {
+      parsedUrl.protocol = pageProtocol;
+      return parsedUrl.toString().replace(/\/$/u, "");
+    }
+  } catch {
+    // Keep the raw value for the existing downstream validation path.
+  }
+  return value;
+}
+
 function parseBooleanEnv(value: string | undefined): boolean | undefined {
   const normalized = (value ?? "").trim().toLowerCase();
   if (!normalized) {
@@ -128,11 +157,11 @@ export function resolveCustomerServiceApplicationBaseUrl(
   const candidate =
     explicit ??
     readSdkBaseUrlEnvValue(VITE_SDKWORK_CUSTOMER_SERVICE_APPLICATION_PUBLIC_HTTP_URL, env) ??
-    resolveBaseUrl().url;
+    resolveBaseUrlWithAlignProtocol().url;
   if (isBlank(candidate)) {
-    return resolveBaseUrl().url;
+    return resolveBaseUrlWithAlignProtocol().url;
   }
-  return normalizeHttpSdkBaseUrl(candidate.replace(/\/+$/u, ""));
+  return alignBrowserBaseUrlPageProtocol(normalizeHttpSdkBaseUrl(candidate.replace(/\/+$/u, "")));
 }
 
 export function resolvePlatformApiGatewayBaseUrl(
@@ -145,11 +174,11 @@ export function resolvePlatformApiGatewayBaseUrl(
   const candidate =
     explicit ??
     readSdkBaseUrlEnvValue(VITE_SDKWORK_CUSTOMER_SERVICE_PLATFORM_API_GATEWAY_HTTP_URL, env) ??
-    resolveBaseUrl().url;
+    resolveBaseUrlWithAlignProtocol().url;
   if (isBlank(candidate)) {
-    return resolveBaseUrl().url;
+    return resolveBaseUrlWithAlignProtocol().url;
   }
-  return normalizeHttpSdkBaseUrl(candidate.replace(/\/+$/u, ""));
+  return alignBrowserBaseUrlPageProtocol(normalizeHttpSdkBaseUrl(candidate.replace(/\/+$/u, "")));
 }
 
 /** IAM / Appbase app-api base URL (platform connectivity plane). */
