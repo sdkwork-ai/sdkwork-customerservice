@@ -1,10 +1,14 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-customerservice-plugin-goofish-runtime"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 publish.workspace = true
 
+
+[lints]
+workspace = true
 [lib]
 name = "sdkwork_customerservice_plugin_goofish"
 path = "src/lib.rs"
