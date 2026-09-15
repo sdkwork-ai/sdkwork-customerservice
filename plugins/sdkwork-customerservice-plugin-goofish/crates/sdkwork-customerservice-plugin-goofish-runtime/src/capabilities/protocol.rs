@@ -129,7 +129,7 @@ pub fn build_ack_frame(incoming: &Value) -> Option<String> {
     serde_json::to_string(&json!({ "code": 200, "headers": ack_headers })).ok()
 }
 
-#[cfg(test)]
+#[cfg(test)] // WORKSPACE-PATH:allow-fixture-block: this module is the file's #[cfg(test)] unit-test fixture data
 mod tests {
     use super::*;
 
