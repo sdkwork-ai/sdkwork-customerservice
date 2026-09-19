@@ -1,5 +1,9 @@
 import { randomString } from "@sdkwork/utils";
 import type { SdkworkDriveAppClient } from "@sdkwork/drive-app-sdk";
+import {
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD,
+  type CustomerserviceUploadSource,
+} from "./uploadDeclaration";
 
 export interface DriveAttachmentUploadResult {
   driveNodeId: string;
@@ -13,7 +17,7 @@ export interface DriveAttachmentUploadPort {
 }
 
 export interface CreateDriveAttachmentUploadPortOptions {
-  source: "customerservice_pc" | "customerservice_h5";
+  source: CustomerserviceUploadSource;
 }
 
 export function createDriveAttachmentUploadPort(
@@ -26,11 +30,11 @@ export function createDriveAttachmentUploadPort(
       const uploadResult = await driveClient.uploader.upload({
         file,
         taskId: randomString(16),
-        appResourceType: "customerservice-ticket-attachment",
+        appResourceType: CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD.appResourceType,
         appResourceId: "ticket-attachment",
-        scene: "customerservice_ticket_attachment",
+        scene: CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD.scene,
         source: options.source,
-        uploadProfileCode: "attachment",
+        uploadProfileCode: CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD.uploadProfileCode,
         fileFingerprint: `${file.name}:${file.size}:${contentType}`,
         originalFileName: file.name,
         contentType,

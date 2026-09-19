@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "appId": "sdkwork-customerservice",
+  "declarations": [
+    {
+      "appResourceType": "customerservice.ticket_attachment",
+      "appResourceIdKind": "entity",
+      "scene": "ticket-attachment",
+      "source": "customerservice-pc",
+      "uploadProfileCode": "attachment",
+      "retention": "long_term",
+      "purpose": "Attachment uploaded by an agent from the customer-service console onto a support ticket, kept for the lifetime of the ticket."
+    },
+    {
+      "appResourceType": "customerservice.ticket_attachment",
+      "appResourceIdKind": "entity",
+      "scene": "ticket-attachment",
+      "source": "customerservice-h5",
+      "uploadProfileCode": "attachment",
+      "retention": "long_term",
+      "purpose": "Attachment uploaded by an end user from the customer-service H5 surface onto a support ticket, kept for the lifetime of the ticket."
+    }
+  ]
+}

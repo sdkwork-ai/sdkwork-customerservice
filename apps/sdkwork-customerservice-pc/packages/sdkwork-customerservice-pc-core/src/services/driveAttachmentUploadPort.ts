@@ -1,5 +1,6 @@
 import {
   createDriveAttachmentUploadPort as createSharedDriveAttachmentUploadPort,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_SOURCE_PC,
   type DriveAttachmentUploadPort,
   type DriveAttachmentUploadResult,
 } from "@sdkwork/customerservice-client-core";
@@ -10,5 +11,7 @@ export type { DriveAttachmentUploadPort, DriveAttachmentUploadResult };
 export function createDriveAttachmentUploadPort(
   driveClient: SdkworkDriveAppClient,
 ): DriveAttachmentUploadPort {
-  return createSharedDriveAttachmentUploadPort(driveClient, { source: "customerservice_pc" });
+  return createSharedDriveAttachmentUploadPort(driveClient, {
+    source: CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_SOURCE_PC,
+  });
 }

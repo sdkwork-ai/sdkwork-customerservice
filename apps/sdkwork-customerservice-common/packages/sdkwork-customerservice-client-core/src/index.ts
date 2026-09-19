@@ -88,4 +88,20 @@ export {
   type DriveAttachmentUploadPort,
   type DriveAttachmentUploadResult,
 } from "./services/driveAttachmentUploadPort";
+export {
+  CUSTOMERSERVICE_APP_ID,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_APP_RESOURCE_TYPE,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_PROFILE_CODE,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_SCENE,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_H5,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_SOURCE_H5,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_SOURCE_PC,
+  CUSTOMERSERVICE_UPLOAD_DECLARATIONS,
+  CUSTOMERSERVICE_UPLOAD_SOURCES,
+} from "./services/uploadDeclaration";
+export type {
+  CustomerserviceUploadDeclarationEntry,
+  CustomerserviceUploadSource,
+} from "./services/uploadDeclaration";
 export { IamSessionPanel, type IamSessionPanelProps } from "./ui/IamSessionPanel";

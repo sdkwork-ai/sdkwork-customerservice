@@ -3,6 +3,7 @@ import { createClient as createDriveClient, type SdkworkDriveAppClient } from "@
 import {
   buildOperatorSdkHeaders,
   createDriveAttachmentUploadPort,
+  CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_SOURCE_H5,
   loadOperatorSessionFromStorage,
   listMyTickets,
   resolveDriveApiBaseUrl,
@@ -92,7 +93,7 @@ export function createEndUserDriveAttachmentUploadPort(
   driveBaseUrl?: string,
 ): DriveAttachmentUploadPort {
   return createDriveAttachmentUploadPort(createCustomerServiceDriveClient({ session, driveBaseUrl }), {
-    source: "customerservice_h5",
+    source: CUSTOMERSERVICE_TICKET_ATTACHMENT_UPLOAD_SOURCE_H5,
   });
 }
 
