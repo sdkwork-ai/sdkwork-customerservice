@@ -20,15 +20,16 @@ Read `../sdkwork-specs/SOUL.md` before executing tasks in this root.
 Sibling SDKWork packages (`@sdkwork/drive-app-sdk`, `@sdkwork/iam-app-sdk`, `@sdkwork/utils`, generated SDKs, etc.) **MUST** follow `DEPENDENCY_MANAGEMENT_SPEC.md`:
 
 - Declare each sibling source path **once** in repository-root `pnpm-workspace.yaml` `packages:` (materialized from `sdkwork-specs/workspace/consumers/sdkwork-customerservice.json` via `sync-workspace.mjs`).
+- The repository-root `catalog:` section is materialized by the same command, from `sdkwork-specs/workspace/catalog.base.json`, optionally overlayed by a governance `configs/dependency-catalog.yaml` at the multi-repository checkout root when one exists.
 - Member `package.json` files **MUST** consume SDKWork siblings with `workspace:*` only.
 - **Forbidden:** `file:` / `link:` on SDKWork cross-workspace sources, or redeclaring sibling paths inside member packages.
 
 When adding or changing SDK dependencies:
 
 ```bash
-# 1. Update sdkwork-specs/workspace/consumers/sdkwork-customerservice.json
+# Regenerate the repository-root pnpm-workspace.yaml (packages: and catalog:) from the consumer
+# overlay, then install and re-verify.
 node ../sdkwork-specs/tools/sync-workspace.mjs --repo sdkwork-customerservice --root .
-node ../tools/sync-workspace-catalog.mjs --target sdkwork-customerservice   # from sdkwork-space root when catalog drift
 pnpm install
 pnpm run check:workspace
 ```
@@ -409,7 +410,7 @@ Verification:
 ```bash
 node ../sdkwork-specs/tools/verify-repo.mjs --root .
 node ../sdkwork-specs/tools/check-workspace-member-protocol.mjs --root .
-node ../sdkwork-specs/tools/check-dependency-list-completeness.mjs --target <repo-name>
+node ../sdkwork-specs/tools/check-dependency-list-completeness.mjs --root .
 ```
 <!-- /SDKWORK-PNPM-WORKSPACE-STANDARD: v1 -->
 
