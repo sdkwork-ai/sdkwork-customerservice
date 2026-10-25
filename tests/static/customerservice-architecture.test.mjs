@@ -32,8 +32,8 @@ test("AGENTS.md mandates sdkwork-drive for file uploads", () => {
   assert.match(agents, /sdkwork-drive/);
 });
 
-test("sdkwork.app.config.json declares customerservice app key", () => {
-  const manifest = JSON.parse(readFileSync(path.join(root, "sdkwork.app.config.json"), "utf8"));
+test("agent.app.config.json declares customerservice app key", () => {
+  const manifest = JSON.parse(readFileSync(path.join(root, "agent.app.config.json"), "utf8"));
   assert.equal(manifest.app.key, "sdkwork-customerservice");
   assert.equal(manifest.metadata.capability, "customerservice");
 });

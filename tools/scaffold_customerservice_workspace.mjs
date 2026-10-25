@@ -85,7 +85,7 @@ Read \`../sdkwork-specs/SOUL.md\` before executing tasks in this root.
 
 ## Application Identity
 
-Application manifests live under \`apps/*/sdkwork.app.config.json\` and root \`sdkwork.app.config.json\`.
+Application manifests live under \`apps/*/agent.app.config.json\` and root \`agent.app.config.json\`.
 This repository root is the communication **customerservice** capability workspace (\`domain: communication\`, \`capability: customerservice\`).
 
 ## Project Rules
@@ -162,7 +162,7 @@ await writeAlways(
         capability: "customerservice",
         languages: ["typescript", "rust"],
         generated: false,
-        manifests: ["package.json", "Cargo.toml", "sdkwork.app.config.json"],
+        manifests: ["package.json", "Cargo.toml", "agent.app.config.json"],
       },
       canonicalSpecs: [
         { file: "WEB_FRAMEWORK_SPEC.md", path: "../sdkwork-specs/WEB_FRAMEWORK_SPEC.md" },
@@ -195,7 +195,7 @@ Local narrowing rules for the communication customerservice capability workspace
 );
 
 await writeAlways(
-  "sdkwork.app.config.json",
+  "agent.app.config.json",
   `${JSON.stringify(
     {
       schemaVersion: 1,

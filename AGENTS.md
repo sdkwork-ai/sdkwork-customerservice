@@ -51,7 +51,7 @@ When debugging 401/404 across PC/H5 shells and the Rust gateway:
 
 ## Application Identity
 
-Application manifests live under `apps/*/sdkwork.app.config.json` and root `sdkwork.app.config.json`.
+Application manifests live under `apps/*/agent.app.config.json` and root `agent.app.config.json`.
 This repository root is the communication **customerservice** capability workspace (`domain: communication`, `capability: customerservice`).
 
 ## Project Rules

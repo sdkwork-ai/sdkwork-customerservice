@@ -1,23 +1,36 @@
 {
   "schemaVersion": 3,
-  "kind": "sdkwork.app",
+  "kind": "agent.app",
   "app": {
-    "key": "sdkwork-customerservice-flutter",
-    "name": "SDKWork Customer Service Flutter",
-    "displayName": "SDKWork Customer Service Flutter",
-    "description": "Native mobile customer service client.",
+    "key": "sdkwork-customerservice",
+    "name": "SDKWork Customer Service",
+    "displayName": "SDKWork Customer Service",
+    "description": "Customer support tickets, inboxes, and operator console.",
     "vendor": "SDKWork",
-    "appType": "APP_FLUTTER",
-    "versionSource": "pubspec.yaml",
-    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-customerservice-flutter"
+    "appType": "APP_REACT",
+    "versionSource": "package.json",
+    "identifiers": {
+      "containerImage": "registry.sdkwork.com/apps/sdkwork-customerservice-pc"
+    },
+    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-customerservice"
   },
-  "backend": {},
+  "backend": {
+    "profileKey": "backend-root-admin",
+    "ownerMode": "tenant",
+    "grantMode": "current",
+    "platform": "WEB",
+    "tenantId": "100001",
+    "organizationId": "0"
+  },
   "runtime": {
-    "family": "mobile",
-    "framework": "flutter",
+    "family": "web",
+    "framework": "react",
     "runtimes": [
-      "IOS",
-      "ANDROID"
+      "WEB",
+      "BROWSER"
+    ],
+    "deliveryModes": [
+      "WEB_URL"
     ],
     "supportedDeploymentProfiles": [
       "standalone",
@@ -28,10 +41,10 @@
   "media": {
     "icons": {
       "primary": {
-        "id": "sdkwork-customerservice-flutter-primary-icon",
+        "id": "sdkwork-customerservice-primary-icon",
         "type": "ICON",
         "purpose": "PRIMARY",
-        "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice-flutter/assets/icon-1024.png",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice/assets/icon-1024.png",
         "platform": "APP",
         "locale": "en-US",
         "width": 1024,
@@ -52,10 +65,10 @@
     },
     "screenshots": [
       {
-        "id": "sdkwork-customerservice-flutter-web-screenshot",
+        "id": "sdkwork-customerservice-web-screenshot",
         "type": "SCREENSHOT",
         "purpose": "CATALOG_SCREENSHOT",
-        "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice-flutter/media/web-screenshot.png",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice/media/web-screenshot.png",
         "platform": "WEB",
         "locale": "en-US",
         "deviceClass": "BROWSER",
@@ -65,21 +78,21 @@
         "format": "PNG",
         "fileSizeBytes": 1048576,
         "alphaChannel": false,
-        "caption": "SDKWork Customer Service Flutter product screenshot.",
+        "caption": "SDKWork Customer Service product screenshot.",
         "sortOrder": 0,
         "enabled": true,
         "metadata": {
           "generatedPlaceholder": true,
-          "altText": "SDKWork Customer Service Flutter app screenshot."
+          "altText": "SDKWork Customer Service app screenshot."
         }
       }
     ],
     "previews": [
       {
-        "id": "sdkwork-customerservice-flutter-catalog-preview",
+        "id": "sdkwork-customerservice-catalog-preview",
         "type": "PREVIEW_IMAGE",
         "purpose": "CATALOG_PREVIEW",
-        "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice-flutter/media/preview-cover.png",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice/media/preview-cover.png",
         "platform": "WEB",
         "locale": "en-US",
         "width": 1600,
@@ -87,12 +100,12 @@
         "format": "PNG",
         "fileSizeBytes": 786432,
         "alphaChannel": false,
-        "caption": "SDKWork Customer Service Flutter preview.",
+        "caption": "SDKWork Customer Service preview.",
         "sortOrder": 0,
         "enabled": true,
         "metadata": {
           "generatedPlaceholder": true,
-          "altText": "SDKWork Customer Service Flutter preview cover."
+          "altText": "SDKWork Customer Service preview cover."
         }
       }
     ],
@@ -102,6 +115,10 @@
     }
   },
   "publish": {
+    "config": {
+      "workspaceRoot": "sdkwork-customerservice",
+      "managedBy": "sdkwork-customerservice-workspace"
+    },
     "status": "ACTIVE",
     "platforms": [
       "WEB"
@@ -114,25 +131,25 @@
       "name": "sdkwork-skills-app"
     },
     "stores": [],
-    "storeUrl": "https://sdkwork.com/apps/sdkwork-customerservice-flutter"
+    "storeUrl": "https://sdkwork.com/apps/sdkwork-customerservice"
   },
   "artifacts": {
     "installConfig": {
       "defaultPackageId": "linux-x64-standalone-server-tar-gz",
-      "installCommand": "sdkwork install sdkwork-customerservice-flutter",
-      "launchCommand": "sdkwork open sdkwork-customerservice-flutter",
-      "uninstallCommand": "sdkwork uninstall sdkwork-customerservice-flutter",
+      "installCommand": "sdkwork install sdkwork-customerservice",
+      "launchCommand": "sdkwork open sdkwork-customerservice",
+      "uninstallCommand": "sdkwork uninstall sdkwork-customerservice",
       "packages": [
         {
           "id": "linux-x64-standalone-server-tar-gz",
-          "name": "Sdkwork Customerservice Flutter standalone server archive",
+          "name": "Sdkwork Customerservice standalone server archive",
           "sourceType": "BINARY_URL",
           "packageFormat": "TAR_GZ",
           "platform": "API",
-          "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice-flutter/STABLE/0.1.0/linux-x64-standalone-server-tar-gz-0.1.0.tar.gz",
+          "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice/STABLE/0.1.0/linux-x64-standalone-server-tar-gz-0.1.0.tar.gz",
           "architecture": "x64",
           "checksumAlgorithm": "SHA-256",
-          "checksum": "5dd9b8040c1b4ee89cebcc0c692f5586045316d155ce83eb058c19c70ffc6c90",
+          "checksum": "861e528b8c8a7fb7b2e810549735dde9b156a3dc4c26a76ddf432a9debc1b336",
           "deploymentProfile": "standalone",
           "runtimeTarget": "server",
           "profileBinding": "fixed",
@@ -143,14 +160,14 @@
         },
         {
           "id": "linux-x64-cloud-server-tar-gz",
-          "name": "Sdkwork Customerservice Flutter cloud server archive",
+          "name": "Sdkwork Customerservice cloud server archive",
           "sourceType": "BINARY_URL",
           "packageFormat": "TAR_GZ",
           "platform": "API",
-          "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice-flutter/STABLE/0.1.0/linux-x64-cloud-server-tar-gz-0.1.0.tar.gz",
+          "url": "https://cdn.sdkwork.com/apps/sdkwork-customerservice/STABLE/0.1.0/linux-x64-cloud-server-tar-gz-0.1.0.tar.gz",
           "architecture": "x64",
           "checksumAlgorithm": "SHA-256",
-          "checksum": "5f9919c2a7729c8ca607918632267e5bf00b4e4d61576078ad4b228fc9cc6973",
+          "checksum": "e10fd11d6d742f87c628c65ecbacec1a0214d86c118b0847d4a1451ebff886b7",
           "deploymentProfile": "cloud",
           "runtimeTarget": "server",
           "profileBinding": "fixed",
@@ -172,9 +189,9 @@
       {
         "version": "0.1.0",
         "releaseChannel": "STABLE",
-        "title": "SDKWork Customer Service Flutter 0.1.0",
-        "summary": "SDKWork Customer Service Flutter initialized standard release.",
-        "content": "Initial SDKWork App Standard v3 manifest for SDKWork Customer Service Flutter.",
+        "title": "SDKWork Customer Service 0.1.0",
+        "summary": "SDKWork Customer Service initialized standard release.",
+        "content": "Initial SDKWork App Standard v3 manifest for SDKWork Customer Service.",
         "highlights": [
           "SDKWork App Standard v3 configuration initialized",
           "platform_app projection metadata standardized",
@@ -198,10 +215,12 @@
     "sbomRequired": false
   },
   "devApp": {
-    "sourceRoot": "apps/sdkwork-customerservice-flutter"
+    "sourceRoot": "apps/sdkwork-customerservice-pc"
   },
   "metadata": {
-    "deploymentConfig": "etc/sdkwork.deployment.config.json",
-    "standardOwner": "sdkwork-platform"
+    "standardOwner": "sdkwork-specs",
+    "domain": "communication",
+    "capability": "customerservice",
+    "deploymentConfig": "etc/sdkwork.deployment.config.json"
   }
 }
