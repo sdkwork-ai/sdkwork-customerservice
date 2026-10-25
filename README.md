@@ -9,7 +9,7 @@ SDKWork communication **customerservice** capability: support tickets, agent rep
 - PC console: `apps/sdkwork-customerservice-pc`
 - Database: `database/` via `sdkwork-database`
 - OpenAPI: `apis/app-api/communication/`, `apis/backend-api/communication/`, `apis/internal-api/communication/` (materialize via `pnpm api:materialize`)
-- Deploy: `deployments/deploy.yaml` + `sdkwork.workflow.json`
+- Deploy: `deployments/deploy.yaml` + `agent.workflow.json`
 
 ## Documentation Canon
 

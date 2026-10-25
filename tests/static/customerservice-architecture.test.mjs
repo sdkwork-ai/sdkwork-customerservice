@@ -98,7 +98,7 @@ test("plugin system migration DDL exists", () => {
 
 test("deploy manifest and workflow contract exist", () => {
   assert.ok(readFileSync(path.join(root, "deployments/deploy.yaml"), "utf8").includes("cloud.production"));
-  assert.ok(readFileSync(path.join(root, "sdkwork.workflow.json"), "utf8").includes("sdkwork-customerservice"));
+  assert.ok(readFileSync(path.join(root, "agent.workflow.json"), "utf8").includes("sdkwork-customerservice"));
   assert.ok(existsSync(path.join(root, ".github/workflows/package.yml")));
   const envExample = readFileSync(path.join(root, ".env.example"), "utf8");
   assert.match(envExample, /CUSTOMER_SERVICE_CREDENTIAL_MASTER_KEY/);

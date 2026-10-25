@@ -169,7 +169,7 @@ test("governance workflow runs postgres integration job", () => {
   assert.match(source, /workflow:prepare-ci-dependencies/);
 });
 
-test("CI materializes sibling SDKWork repositories from sdkwork.workflow.json", () => {
+test("CI materializes sibling SDKWork repositories from agent.workflow.json", () => {
   assert.ok(
     existsSync(path.join(repoRoot, "scripts/prepare-ci-dependencies.mjs")),
     "scripts/prepare-ci-dependencies.mjs must exist",
@@ -181,7 +181,7 @@ test("CI materializes sibling SDKWork repositories from sdkwork.workflow.json", 
   assert.match(materializer, /sdkwork\.workflow\.json/);
   assert.match(materializer, /path\.resolve\(repoRoot, '\.\.'\)/);
   assert.match(materializer, /tokenSecret/);
-  const workflow = JSON.parse(readFileSync(path.join(repoRoot, "sdkwork.workflow.json"), "utf8"));
+  const workflow = JSON.parse(readFileSync(path.join(repoRoot, "agent.workflow.json"), "utf8"));
   const dependencyIds = (workflow.dependencies ?? []).map((dependency) => dependency.id);
   for (const requiredId of [
     "sdkwork-database",
@@ -194,7 +194,7 @@ test("CI materializes sibling SDKWork repositories from sdkwork.workflow.json", 
     "sdkwork-sdk-commons",
     "sdkwork-specs",
   ]) {
-    assert.ok(dependencyIds.includes(requiredId), `sdkwork.workflow.json must declare ${requiredId}`);
+    assert.ok(dependencyIds.includes(requiredId), `agent.workflow.json must declare ${requiredId}`);
   }
   const pkg = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "utf8"));
   assert.match(pkg.scripts["workflow:prepare-ci-dependencies"], /prepare-ci-dependencies\.mjs/);

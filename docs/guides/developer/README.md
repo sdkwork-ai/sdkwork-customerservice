@@ -54,11 +54,11 @@ IAM login and Drive require the platform API gateway on `127.0.0.1:3900` (see `e
 
 `.github/workflows/governance.yml` runs:
 
-1. `pnpm run workflow:prepare-ci-dependencies` — clone sibling SDKWork repos from `sdkwork.workflow.json`
+1. `pnpm run workflow:prepare-ci-dependencies` — clone sibling SDKWork repos from `agent.workflow.json`
 2. `pnpm verify` on every PR/push to `main`
 3. `postgres-integration` job — Postgres 16 service, `pnpm db:bootstrap`, `pnpm test:postgres`
 
-Release workflow (`sdkwork.workflow.json`) runs `pnpm test:postgres:required` in the `validate` lifecycle when packaging with a configured database URL.
+Release workflow (`agent.workflow.json`) runs `pnpm test:postgres:required` in the `validate` lifecycle when packaging with a configured database URL.
 
 ## Canon
 

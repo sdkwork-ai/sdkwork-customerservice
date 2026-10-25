@@ -79,7 +79,7 @@ App list queries: `page`, `pageSize`, `limit` (alias), optional `status`.
 - CORS: disabled by default; set `CUSTOMER_SERVICE_CORS_ALLOW_ALL=true` for local dev only
 - Topology profiles: `etc/topology/*.env` + `specs/topology.spec.json`
 - Deploy contract: `deployments/deploy.yaml` (validated by `pnpm deploy:validate`)
-- Release workflow: `sdkwork.workflow.json` + `.github/workflows/package.yml`
+- Release workflow: `agent.workflow.json` + `.github/workflows/package.yml`
 
 ## API authority
 

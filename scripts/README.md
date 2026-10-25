@@ -4,7 +4,7 @@ Repository automation scripts.
 
 | Script | Purpose |
 | --- | --- |
-| `prepare-ci-dependencies.mjs` | Materializes sibling SDKWork repositories declared in `sdkwork.workflow.json` for CI and isolated verify parity |
+| `prepare-ci-dependencies.mjs` | Materializes sibling SDKWork repositories declared in `agent.workflow.json` for CI and isolated verify parity |
 | `gateway/assembly-materialize.mjs` | Gateway composition materialization |
 | `gateway/assembly-validate.mjs` | Gateway composition validation |
 

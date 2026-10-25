@@ -17,8 +17,8 @@ test("deployments/deploy.yaml passes SDKWork deploy standard", () => {
   assert.match(result.stdout, /check-deploy-standard ok/);
 });
 
-test("sdkwork.workflow.json declares release lifecycle", () => {
-  const workflow = JSON.parse(readFileSync(path.join(root, "sdkwork.workflow.json"), "utf8"));
+test("agent.workflow.json declares release lifecycle", () => {
+  const workflow = JSON.parse(readFileSync(path.join(root, "agent.workflow.json"), "utf8"));
   assert.equal(workflow.app.id, "sdkwork-customerservice");
   assert.ok(Array.isArray(workflow.lifecycle.validate));
   assert.ok(Array.isArray(workflow.targets));

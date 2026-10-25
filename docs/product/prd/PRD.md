@@ -45,7 +45,7 @@ Deliver a **communication / customerservice** capability for SDKWork tenants: se
 - Attachments: Drive upload via `@sdkwork/drive-app-sdk` on PC and H5; metadata register via customerservice app SDK
 - H5 exposes full app-api ticket surface for end users with IAM login gate
 - PC/H5 operator consoles expose plugin enablement admin via backend SDK
-- Release packaging configured via `sdkwork.workflow.json` and `deployments/deploy.yaml` (PC + H5 + server)
+- Release packaging configured via `agent.workflow.json` and `deployments/deploy.yaml` (PC + H5 + server)
 
 ## Operational prerequisites
 
