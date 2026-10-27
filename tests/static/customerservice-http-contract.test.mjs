@@ -178,7 +178,7 @@ test("CI materializes sibling SDKWork repositories from agent.workflow.json", ()
     path.join(repoRoot, "scripts/prepare-ci-dependencies.mjs"),
     "utf8",
   );
-  assert.match(materializer, /sdkwork\.workflow\.json/);
+  assert.match(materializer, /agent\.workflow\.json/);
   assert.match(materializer, /path\.resolve\(repoRoot, '\.\.'\)/);
   assert.match(materializer, /tokenSecret/);
   const workflow = JSON.parse(readFileSync(path.join(repoRoot, "agent.workflow.json"), "utf8"));
