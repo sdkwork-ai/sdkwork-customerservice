@@ -29,7 +29,7 @@ Thumbs.db
 .env.test.local
 .env.staging.local
 .env.production.local
-.env.postgres
+config/host/postgres.env
 .env.release.local
 config/*.local.toml
 apps/*/config/*/*.local.toml
@@ -51,7 +51,7 @@ configs/topology/*.production.env
 **/test-results/
 **/playwright-report/
 **/coverage/
-!.env.postgres.example
+!config/host/postgres.env.example
 .idea/
 .vscode/
 **/.sdkwork/dart/pub-cache/
