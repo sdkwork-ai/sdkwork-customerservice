@@ -36,9 +36,6 @@
     "standalone.staging": {
       "config": "topology/standalone.staging.env"
     },
-    "standalone.production": {
-      "config": "topology/standalone.production.env"
-    },
     "cloud.development": {
       "config": "topology/cloud.development.env"
     },
@@ -47,9 +44,6 @@
     },
     "cloud.staging": {
       "config": "topology/cloud.staging.env"
-    },
-    "cloud.production": {
-      "config": "topology/cloud.production.env"
     },
     "standalone.demo": {
       "config": "topology/standalone.demo.env"

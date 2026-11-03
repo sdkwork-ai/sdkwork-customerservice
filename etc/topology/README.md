@@ -39,9 +39,14 @@ Manual token paste is available only when `VITE_SDKWORK_CUSTOMER_SERVICE_DEV_MAN
 | Profile | File |
 | --- | --- |
 | `standalone.development` | `standalone.development.env` |
-| `standalone.production` | `standalone.production.env` |
-| `cloud.production` | `cloud.production.env` |
+| `standalone.test` | `standalone.test.env` |
+| `standalone.staging` | `standalone.staging.env` |
+| `cloud.development` | `cloud.development.env` |
+| `cloud.test` | `cloud.test.env` |
+| `cloud.staging` | `cloud.staging.env` |
 | `standalone.demo` | `standalone.demo.env` |
 | `cloud.demo` | `cloud.demo.env` |
+
+Production profiles are intentionally not declared until their env files exist.
 
 Validate: `pnpm topology:validate` and `pnpm topology:profile:check`
