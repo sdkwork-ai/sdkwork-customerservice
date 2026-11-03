@@ -96,6 +96,21 @@
           "iam:self"
         ]
       }
+    },
+    {
+      "id": "sdkwork-customerservice-flutter",
+      "root": "apps/sdkwork-customerservice-flutter",
+      "format": "flutter",
+      "runtimeTarget": "flutter-android",
+      "bindings": {},
+      "accessToken": {
+        "appId": "sdkwork-customerservice-flutter",
+        "tenantId": "100001",
+        "organizationId": "0",
+        "permissionScope": [
+          "iam:self"
+        ]
+      }
     }
   ]
 }
