@@ -11,7 +11,14 @@
     "versionSource": "package.json",
     "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-customerservice-pc"
   },
-  "backend": {},
+  "backend": {
+    "appId": "sdkwork-customerservice-pc",
+    "tenantId": "100001",
+    "organizationId": "0",
+    "accessTokenPermissionScope": [
+      "iam:self"
+    ]
+  },
   "runtime": {
     "family": "web",
     "framework": "react",

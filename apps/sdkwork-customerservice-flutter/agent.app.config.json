@@ -11,7 +11,14 @@
     "versionSource": "pubspec.yaml",
     "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-customerservice-flutter"
   },
-  "backend": {},
+  "backend": {
+    "appId": "sdkwork-customerservice-flutter",
+    "tenantId": "100001",
+    "organizationId": "0",
+    "accessTokenPermissionScope": [
+      "iam:self"
+    ]
+  },
   "runtime": {
     "family": "mobile",
     "framework": "flutter",

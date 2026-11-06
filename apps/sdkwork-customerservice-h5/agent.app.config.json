@@ -11,7 +11,14 @@
     "versionSource": "package.json",
     "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-customerservice-h5"
   },
-  "backend": {},
+  "backend": {
+    "appId": "sdkwork-customerservice-h5",
+    "tenantId": "100001",
+    "organizationId": "0",
+    "accessTokenPermissionScope": [
+      "iam:self"
+    ]
+  },
   "runtime": {
     "family": "web",
     "framework": "react",
