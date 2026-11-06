@@ -50,6 +50,12 @@
     },
     "cloud.demo": {
       "config": "topology/cloud.demo.env"
+    },
+    "standalone.production": {
+      "config": "topology/standalone.production.env"
+    },
+    "cloud.production": {
+      "config": "topology/cloud.production.env"
     }
   }
 }
